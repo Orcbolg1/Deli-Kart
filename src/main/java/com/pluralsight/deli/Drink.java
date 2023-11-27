@@ -1,14 +1,31 @@
 package com.pluralsight.deli;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // Concrete class representing a drink
 public class Drink implements GetPrice {
     // Attributes for the drink
     private char size; // S for Small, M for Medium, L for Large
     private String flavor;
+    private static final List<String> availableFlavors = new ArrayList<>(); // ArrayList to store available flavors
+    private final double basePrice = 2.0; // Base price for a drink
+
+    // Static block to initialize available flavors
+    static {
+        availableFlavors.add("Cola");
+        availableFlavors.add("Orange");
+        availableFlavors.add("Lemon-Lime");
+        availableFlavors.add("Root-Beer");
+        // Add more flavors as needed
+    }
 
     // Constructor for a drink
     public Drink(char size, String flavor) {
         this.size = size;
+        if (!availableFlavors.contains(flavor)) {
+            throw new IllegalArgumentException("Invalid flavor: " + flavor);
+        }
         this.flavor = flavor;
     }
 
@@ -17,7 +34,7 @@ public class Drink implements GetPrice {
     public double getPrice() {
         // Add logic to calculate the price based on size and any other factors
         // For simplicity, let's assume a base price and adjust for size
-        double basePrice = 2.0; // Base price for a drink
+
 
         switch (size) {
             case 'S':
@@ -31,12 +48,16 @@ public class Drink implements GetPrice {
         }
     }
 
-    // Additional methods specific to the drink, if any
-    public char getSize() {
-        return size;
-    }
-
+    // Getter method for the flavor attribute
     public String getFlavor() {
         return flavor;
     }
+
+    // Getter method for the available flavors
+    public static List<String> getAvailableFlavors() {
+        return new ArrayList<>(availableFlavors); // Return a copy to prevent modification of the original list
+    }
+
+    // Additional methods specific to the drink, if any
+
 }
