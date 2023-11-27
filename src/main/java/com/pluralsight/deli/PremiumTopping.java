@@ -18,7 +18,7 @@ public class PremiumTopping extends Topping {
     @Override
     public double getPrice() {
         // Add 1 dollar to the base price for premium toppings
-        return super.getPrice() + 1.0;
+        return super.getPrice();
     }
 
     // Additional methods specific to premium topping, if any
