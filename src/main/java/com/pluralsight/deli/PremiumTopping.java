@@ -58,7 +58,7 @@ public class PremiumTopping extends Topping {
     public static List<String> getCheeseToppings(){
         return new ArrayList<>(cheeseToppings);
     }
-    
+
     // Concrete implementation of the abstract method from the superclass
     @Override
     public String getTopping() {
