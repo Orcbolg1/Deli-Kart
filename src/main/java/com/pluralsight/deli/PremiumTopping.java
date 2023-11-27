@@ -51,10 +51,18 @@ public class PremiumTopping extends Topping {
         isExtraCheese = extraCheese;
     }
 
+    public static List<String> getMeatToppings(){
+        return new ArrayList<>(meatToppings);
+    }
+
+    public static List<String> getCheeseToppings(){
+        return new ArrayList<>(cheeseToppings);
+    }
+    
     // Concrete implementation of the abstract method from the superclass
     @Override
     public String getTopping() {
-        return "Premium Topping: " + getName();
+        return null;
     }
 
     // Override the getPrice method to add 1 dollar for premium toppings
