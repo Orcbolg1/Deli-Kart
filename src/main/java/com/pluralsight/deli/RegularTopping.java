@@ -1,17 +1,26 @@
 package com.pluralsight.deli;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // Concrete subclass representing a regular topping
 public class RegularTopping extends Topping {
     // Constructor for a regular topping with a default price of 0.0
+    private static final List<String> regularToppings = new ArrayList<>();
+    static {
+        regularToppings.add("lettuce");
+        regularToppings.add("peppers");
+        regularToppings.add("onions");
+        regularToppings.add("tomatoes");
+        regularToppings.add("jalapenos");
+        regularToppings.add("cucumbers");
+        regularToppings.add("pickles");
+        regularToppings.add("guacamole");
+        regularToppings.add("mushrooms");
+    }
     public RegularTopping(String name) {
         super(name);
         // Additional initialization for regular topping, if needed
-    }
-
-    // Concrete implementation of the abstract method from the superclass
-    @Override
-    public String getTopping() {
-        return "Regular Topping: " + getName();
     }
 
     // Override the getPrice method if you want to provide a specific implementation for regular toppings
@@ -22,5 +31,11 @@ public class RegularTopping extends Topping {
         return super.getPrice();
     }
 
+    @Override
+    public String getTopping() {
+        // Return a copy to prevent modification of the original list
+        return String.valueOf(new ArrayList<>(regularToppings));
+    }
     // Additional methods specific to regular topping, if any
+
 }
