@@ -1,9 +1,20 @@
 package com.pluralsight.deli;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // Concrete subclass representing a sauce
 public class Sauce extends Topping {
     // Additional attributes specific to sauce, if any
-
+    private static final List<String> condiments = new ArrayList<>();
+    static {
+        condiments.add("Mayonnaise");
+        condiments.add("Mustard");
+        condiments.add("Ketchup");
+        condiments.add("Ranch");
+        condiments.add("Thousand Islands");
+        condiments.add("Vinaigrette");
+    }
     // Constructor for a sauce
     public Sauce(String name) {
         super(name);
@@ -21,7 +32,7 @@ public class Sauce extends Topping {
     public double getPrice() {
         // Add any specific logic for calculating the price of the sauce, if needed
         // For now, just return the price from the superclass
-        return super.getPrice();
+        return 0;
     }
 }
 
