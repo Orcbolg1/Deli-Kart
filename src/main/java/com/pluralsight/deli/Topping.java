@@ -7,7 +7,7 @@ public abstract class Topping implements GetPrice{
     private double price;
 
     // Constructor for a topping
-    public Topping(String name, double price) {
+    public Topping(String name) {
         this.name = name;
         this.price = 0.0; // Default price
     }

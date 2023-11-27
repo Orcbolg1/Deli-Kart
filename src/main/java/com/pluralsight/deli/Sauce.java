@@ -1,16 +1,27 @@
 package com.pluralsight.deli;
 
+// Concrete subclass representing a sauce
+public class Sauce extends Topping {
+    // Additional attributes specific to sauce, if any
 
-    // I have no idea why this is causing an error.
-    public class Sauce extends Topping {
-    // Constructor for a sauce topping (default price of 0)
-    public Sauce(String name, double price) {
-        super(name, price);
+    // Constructor for a sauce
+    public Sauce(String name) {
+        super(name);
+        // Additional initialization for sauce, if needed
     }
-    
-        @Override
-        public double getPrice(){
-            return super.getPrice();
+
+    // Concrete implementation of the abstract method from the superclass
+    @Override
+    public String getTopping() {
+        return "Sauce: " + getName();
+    }
+
+    // Override the getPrice method if you want to provide a specific implementation for sauces
+    @Override
+    public double getPrice() {
+        // Add any specific logic for calculating the price of the sauce, if needed
+        // For now, just return the price from the superclass
+        return super.getPrice();
     }
 }
 
