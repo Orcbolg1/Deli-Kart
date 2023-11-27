@@ -15,11 +15,23 @@ public class PremiumTopping extends Topping {
     }
 
     // Override the getPrice method to add 1 dollar for premium toppings
-    @Override
-    public double getPrice() {
+
+
+    public double getPrice(Sandwich sandwich) {
         // Add 1 dollar to the base price for premium toppings
-        return super.getPrice();
+        double toppingPrice = 0;
+        if (sandwich.getSize() == 4){
+            toppingPrice = 1;
+        }
+        if (sandwich.getSize() == 8){
+            toppingPrice = 2;
+        }
+        if (sandwich.getSize() == 12){
+            toppingPrice = 3;
+        }
+        return toppingPrice;
     }
 
     // Additional methods specific to premium topping, if any
+
 }
