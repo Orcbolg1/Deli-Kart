@@ -65,13 +65,13 @@ public class PremiumTopping extends Topping {
         // Add 1 dollar to the base price for premium toppings
         double toppingPrice = 0;
         if (sandwich.getSize() == 4){
-            toppingPrice = 1;
+            toppingPrice += 1;
         }
         if (sandwich.getSize() == 8){
-            toppingPrice = 2;
+            toppingPrice += 2;
         }
         if (sandwich.getSize() == 12){
-            toppingPrice = 3;
+            toppingPrice += 3;
         }
 
         double extraPrice = 0;

@@ -103,10 +103,17 @@ public class Sandwich implements GetPrice{
     // Method to calculate the price of the sandwich
     @Override
     public double getPrice() {
-        // Implement logic to calculate the price of the sandwich based on its attributes
-        // You can add more detailed pricing logic depending on the size, toppings, etc.
-        // Change return value as needed.
-        return 0;
+        double breadPrice = 0;
+        if (getSize() == 4){
+            breadPrice += 5.50;
+        }
+        if (getSize() == 8){
+            breadPrice += 7;
+        }
+        if (getSize() == 12){
+            breadPrice += 8.50;
+        }
+        return breadPrice;
     }
 
     // Additional methods and functionality can be added as needed
