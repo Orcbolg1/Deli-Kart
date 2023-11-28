@@ -2,6 +2,10 @@ package com.pluralsight.deli;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+
+DID THIS WRONG. SAUCES SHOULD BE WITH SIDES. YOU CHOOSE EITHER 'au jus' or 'sauce'. it's commented out bc i wanted
+everyone's approval first.
 
 // Concrete subclass representing a sauce
 public class Sauce extends Topping {
@@ -36,3 +40,4 @@ public class Sauce extends Topping {
     }
 }
 
+*/
