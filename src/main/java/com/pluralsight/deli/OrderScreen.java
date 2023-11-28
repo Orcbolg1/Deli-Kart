@@ -1,5 +1,6 @@
 package com.pluralsight.deli;
 
+import java.util.Scanner;
 public class OrderScreen {
     //Method to add drinks to the order
     public void addDrinksToOrder () {
@@ -44,5 +45,32 @@ public class OrderScreen {
             System.out.print(character);
         }
         System.out.println();//Move to the next line after printing out the characters
+    }
+
+    public void addChipsToOrder() {
+        System.out.println("Added Chips to your Order");
+        barrier('=');
+
+        //Display the available Chip flavour
+        System.out.println("Available chips to choose: ");
+        for (String flavor : Chip.getAvailableFlavors()) {
+            System.out.println(flavor);
+            barrier('=');
+        }
+
+        // Ask the user to select a chip flavour
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the chip flavour: ");
+        String selectedFlavour = scanner.nextLine().trim().toLowerCase(); // Convert to lower case
+
+        //check if the selected flavour is valid
+        if (Chip.getAvailableFlavors().stream().anyMatch(flavor -> flavor.equalsIgnoreCase(selectedFlavour))) {
+
+            //create an instance of the chip class with the selected flavor
+            Chip chip = new Chip(selectedFlavour);
+            System.out.println("Chips added to the order: " + chip);
+        } else {
+            System.out.println("Invalid Chip Flavor. Chips not added to the order.");
+        }
     }
 }
