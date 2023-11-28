@@ -1,22 +1,15 @@
 package com.pluralsight.deli;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // Concrete class representing chips
 public class Chip implements GetPrice {
     // Attributes for chips
     private String name; // or 'flavor' depending on your preference
-    private static final List<String> availableFlavors = new ArrayList<>(); // ArrayList to store available chip flavors
+    private static final List<String> availableFlavors = new ArrayList<>(Arrays.asList("Sea Salt", "BBQ", "Sour Cream & Onion")); // ArrayList to store available chip flavors
     private final double additionalPrice = 1.5; // Final price for adding chips
-
-    // Static block to initialize available chip flavors
-    static {
-        availableFlavors.add("Salted");
-        availableFlavors.add("Barbecue");
-        availableFlavors.add("Sour Cream and Onion");
-        // Add more flavors as needed
-    }
 
     // Constructor for chips
     public Chip(String name) {
