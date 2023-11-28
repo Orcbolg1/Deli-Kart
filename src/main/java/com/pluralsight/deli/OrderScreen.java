@@ -217,4 +217,101 @@ public class OrderScreen {
         }
     }
 
+    public String getMeatTopping() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose one meat topping:");
+
+        // Display available meat toppings
+        System.out.println("Available meat toppings: " + String.join(", ", PremiumTopping.getMeatToppings()));
+
+        // Prompt user to enter a meat topping
+        System.out.print("Enter a meat topping: ");
+        String meat = scanner.nextLine();
+
+        // Validate if the entered meat topping is valid
+        if (!PremiumTopping.getMeatToppings().contains(meat)) {
+            System.out.println("Invalid meat topping. Please choose from the available options.");
+            return getMeatTopping(); // Recursively call the method to retry
+        }
+
+        return meat;
+    }
+
+    public String getCheeseTopping() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose one cheese topping:");
+
+        // Display available cheese toppings
+        System.out.println("Available cheese toppings: " + String.join(", ", PremiumTopping.getCheeseToppings()));
+
+        // Prompt user to enter a cheese topping
+        System.out.print("Enter a cheese topping: ");
+        String cheese = scanner.nextLine();
+
+        // Validate if the entered cheese topping is valid
+        if (!PremiumTopping.getCheeseToppings().contains(cheese)) {
+            System.out.println("Invalid cheese topping. Please choose from the available options.");
+            return getCheeseTopping(); // Recursively call the method to retry
+        }
+
+        return cheese;
+    }
+
+    public boolean isExtraMeat() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Do you want extra meat? (yes/no): ");
+        String choice = scanner.nextLine().toLowerCase();
+
+        return choice.equals("yes");
+    }
+
+    public boolean isExtraCheese() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Do you want extra cheese? (yes/no): ");
+        String choice = scanner.nextLine().toLowerCase();
+
+        return choice.equals("yes");
+    }
+
+    public List<String> getSauceChoices() {
+        Scanner scanner = new Scanner(System.in);
+        List<String> selectedSauces = new ArrayList<>();
+
+        System.out.println("Choose sauces for your sandwich (enter one at a time, type 'done' to finish):");
+
+        // Display available sauces
+        System.out.println("Available sauces: " + String.join(", ", Side.getCondiments()));
+
+        // Continue adding sauces until the user enters 'done'
+        while (true) {
+            System.out.print("Enter a sauce (or 'done' to finish): ");
+            String sauce = scanner.nextLine();
+
+            if (sauce.equalsIgnoreCase("done")) {
+                break;
+            }
+
+            // Validate if the entered sauce is valid
+            if (!Side.getCondiments().contains(sauce)) {
+                System.out.println("Invalid sauce. Please choose from the available options.");
+                continue;
+            }
+
+            selectedSauces.add(sauce);
+        }
+
+        return selectedSauces;
+    }
+
+    public static void barrier ( char character){
+        for (int i = 0; i < 30; i++) {
+            System.out.print(character);
+        }
+        System.out.println();//Move to the next line after printing out the characters
+    }
+    
 }
