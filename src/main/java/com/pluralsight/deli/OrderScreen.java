@@ -37,7 +37,7 @@ public class OrderScreen {
         System.out.println("1. Build and Place an Order");
         System.out.println("2. View Order History");
         System.out.println("3. Return to Home Screen");
-        System.out.print("Enter your choice: ");
+        System.out.print("Enter your choice:\n ");
     }
 
     public Sandwich createSandwich() {
@@ -87,8 +87,6 @@ public class OrderScreen {
         System.out.println("Sauces: " + sides);
 
 
-
-
         return sandwich;
     }
 
@@ -101,7 +99,7 @@ public class OrderScreen {
     }
 
     //Method to get Sandwich size
-    public int getBreadSize(){
+    public int getBreadSize() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Select Sandwich Size: ");
@@ -132,7 +130,7 @@ public class OrderScreen {
         System.out.println("2. Wheat");
         System.out.println("3. Rye");
         System.out.println("4. Wrap");
-        System.out.print("Enter your choice: ");
+        System.out.print("Enter your choice:\n");
 
         int choice = getUserChoice(scanner);
 
@@ -164,7 +162,7 @@ public class OrderScreen {
 
         // Continue adding toppings until the user enters 'done'
         while (true) {
-            System.out.print("Enter a regular topping (or 'done' to finish): ");
+            System.out.print("Enter a regular topping (or 'done' to finish):\n ");
             String topping = scanner.nextLine();
 
             if (topping.equalsIgnoreCase("done")) {
@@ -179,15 +177,13 @@ public class OrderScreen {
 
             selectedToppings.add(topping);
         }
-
+        barrier('=');
         return selectedToppings;
     }
 
 
     //Method to add chips to the order
     public void addChipsToOrder() {
-        System.out.println("Added Chips to your Order");
-        barrier('=');
 
         //Display the available Chip flavour
         System.out.println("Available chips to choose: ");
@@ -211,13 +207,11 @@ public class OrderScreen {
         } else {
             System.out.println("Invalid Chip Flavor. Chips not added to the order.");
         }
+        barrier('=');
     }
 
     //Method to add drinks to the order
-    public void addDrinksToOrder () {
-        System.out.println("Added Drinks to your Order");
-        barrier('=');
-
+    public void addDrinksToOrder() {
         //Display the available Drink flavour
         System.out.println("Available drinks to choose: ");
         for (String flavour : Drink.getAvailableFlavors()) {
@@ -236,81 +230,81 @@ public class OrderScreen {
             System.out.println("Available Drink Sizes: S (Small), M (Medium), L (Large)");
             System.out.println("Enter your drink size: ");
             char selectedSize = scanner.next().toUpperCase().charAt(0);
-            barrier('=');
 
             //Check to see if selected size is valid
             if (selectedSize == 'S' || selectedSize == 'M' || selectedSize == 'L') {
                 //Create an instance of the Drink class with the selected flavor and size
                 Drink drink = new Drink(selectedSize, selectedFlavour);
                 System.out.println("Drink added to the order: " + drink);
+                barrier('=');
             } else {
                 System.out.println("Invalid Drink Size. Drink not added to the order.");
+                barrier('=');
             }
         } else {
             System.out.println("Invalid Drink Flavour. Drink not added to the order.");
+            barrier('=');
         }
+
     }
 
     public String getMeatTopping() {
         Scanner scanner = new Scanner(System.in);
-
-        barrier('=');
-        System.out.println("Choose one meat topping:");
+        System.out.println("Choose one of the available meat toppings:");
 
         // Display available meat toppings
-        System.out.println("Available meat toppings: " + String.join(", ", PremiumTopping.getMeatToppings()));
+        System.out.println(String.join(", ", PremiumTopping.getMeatToppings()));
 
         // Prompt user to enter a meat topping
-        System.out.print("Enter a meat topping: ");
+        System.out.print("Enter a meat topping:\n ");
         String meat = scanner.nextLine();
-
+        String meatTopping = meat.toLowerCase();
         // Validate if the entered meat topping is valid
         if (!PremiumTopping.getMeatToppings().stream().anyMatch(t -> t.equalsIgnoreCase(meat))) {
             System.out.println("Invalid meat topping. Please choose from the available options.");
             return getMeatTopping(); // Recursively call the method to retry
         }
-
+        barrier('=');
         return meat;
     }
 
     public String getCheeseTopping() {
         Scanner scanner = new Scanner(System.in);
-        barrier('=');
-        System.out.println("Choose one cheese topping:");
+        System.out.println("Choose one of the available cheese toppings:");
 
         // Display available cheese toppings
-        System.out.println("Available cheese toppings: " + String.join(", ", PremiumTopping.getCheeseToppings()));
+        System.out.println(String.join(", ", PremiumTopping.getCheeseToppings()));
 
         // Prompt user to enter a cheese topping
-        System.out.print("Enter a cheese topping: ");
+        System.out.print("Enter a cheese topping:\n");
         String cheese = scanner.nextLine();
 
         // Validate if the entered cheese topping is valid
-        if (!PremiumTopping.getCheeseToppings().stream().anyMatch(t -> t.equalsIgnoreCase(cheese)))  {
+        if (!PremiumTopping.getCheeseToppings().stream().anyMatch(t -> t.equalsIgnoreCase(cheese))) {
             System.out.println("Invalid cheese topping. Please choose from the available options.");
             return getCheeseTopping(); // Recursively call the method to retry
         }
-
+        barrier('=');
         return cheese;
     }
 
     public boolean isExtraMeat() {
         Scanner scanner = new Scanner(System.in);
 
-        barrier('=');
         System.out.print("Do you want extra meat? (yes/no): ");
         String choice = scanner.nextLine().toLowerCase();
 
+        barrier('=');
         return choice.equals("yes");
     }
 
     public boolean isExtraCheese() {
         Scanner scanner = new Scanner(System.in);
 
-        barrier('=');
         System.out.print("Do you want extra cheese? (yes/no): ");
         String choice = scanner.nextLine().toLowerCase();
 
+        barrier('=');
         return choice.equals("yes");
     }
 
@@ -318,7 +312,6 @@ public class OrderScreen {
         Scanner scanner = new Scanner(System.in);
         List<String> selectedSauces = new ArrayList<>();
 
-        barrier('=');
         System.out.println("Choose sauces for your sandwich (enter one at a time, type 'done' to finish):");
 
         // Display available sauces
@@ -326,7 +319,7 @@ public class OrderScreen {
 
         // Continue adding sauces until the user enters 'done'
         while (true) {
-            System.out.print("Enter a sauce (or 'done' to finish): ");
+            System.out.print("Enter a sauce (or 'done' to finish): \n");
             String sauce = scanner.nextLine();
 
             if (sauce.equalsIgnoreCase("done")) {
@@ -341,15 +334,15 @@ public class OrderScreen {
 
             selectedSauces.add(sauce);
         }
-
+        barrier('=');
         return selectedSauces;
     }
 
-    public static void barrier ( char character){
+    public static void barrier(char character) {
         for (int i = 0; i < 30; i++) {
             System.out.print(character);
         }
         System.out.println();//Move to the next line after printing out the characters
     }
-    
+
 }
