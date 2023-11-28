@@ -1,16 +1,29 @@
 package com.pluralsight.deli;
 
-public class Side {
-    public Sauce sideSauce;
-    public String auJus;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Side(Sauce sideSauce, String auJus) {
-        this.sideSauce = sideSauce;
+public class Side {
+    private String auJus;
+    private static final List<String> condiments = new ArrayList<>();
+    static {
+        condiments.add("Mayonnaise");
+        condiments.add("Mustard");
+        condiments.add("Ketchup");
+        condiments.add("Ranch");
+        condiments.add("Thousand Islands");
+        condiments.add("Vinaigrette");
+    }
+
+    public Side(String auJus) {
         this.auJus = auJus;
     }
 
-    @Override
-    public double getPrice() {
-        return super.getPrice();
+    public String getAuJus() {
+        return auJus;
+    }
+
+    public String getCondiments(){
+        return String.valueOf(new ArrayList<String>(condiments));
     }
 }
