@@ -11,13 +11,7 @@ public class PremiumTopping extends Topping {
     private boolean isExtraCheese;
     private static final List<String> meatToppings = new ArrayList<>(Arrays.asList("Steak", "Ham", "Salami", "Roast Beef",
             "Chicken", "Bacon"));
-    private static final List<String> cheeseToppings = new ArrayList<>();
-    static{
-        cheeseToppings.add("American");
-        cheeseToppings.add("Provolone");
-        cheeseToppings.add("Cheddar");
-        cheeseToppings.add("Swiss");
-    }
+    private static final List<String> cheeseToppings = new ArrayList<>(Arrays.asList("American", "Provolone", "Cheddar", "Swiss"));
 
     // Constructor for a premium topping
     public PremiumTopping(String name) {
