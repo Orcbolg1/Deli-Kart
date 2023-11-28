@@ -1,6 +1,7 @@
 package com.pluralsight.deli;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // Concrete class representing a drink
@@ -8,17 +9,10 @@ public class Drink implements GetPrice {
     // Attributes for the drink
     private char size; // S for Small, M for Medium, L for Large
     private String flavor;
-    private static final List<String> availableFlavors = new ArrayList<>(); // ArrayList to store available flavors
+    //Arrays.asList takes in an array for the list since it's final anyway. more beginner-developer-friendly to understand
+    private static final List<String> availableFlavors = new ArrayList<>(Arrays.asList("Cola", "Fanta", "Sprite",
+            "Root-Beer", "Mountain Dew")); // ArrayList to store available flavors
     private final double basePrice = 2.0; // Base price for a drink
-
-    // Static block to initialize available flavors
-    static {
-        availableFlavors.add("Cola");
-        availableFlavors.add("Orange");
-        availableFlavors.add("Lemon-Lime");
-        availableFlavors.add("Root-Beer");
-        // Add more flavors as needed
-    }
 
     // Constructor for a drink
     public Drink(char size, String flavor) {

@@ -1,6 +1,7 @@
 package com.pluralsight.deli;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // Concrete subclass representing a premium topping
@@ -8,17 +9,8 @@ public class PremiumTopping extends Topping {
     //List of toppings customer can add
     private boolean isExtraMeat;
     private boolean isExtraCheese;
-    private static final List<String> meatToppings = new ArrayList<>();
-    static{
-        meatToppings.add("Steak");
-        meatToppings.add("Ham");
-        meatToppings.add("Salami");
-        meatToppings.add("Roast Beef");
-        meatToppings.add("Chicken");
-        meatToppings.add("Bacon");
-
-    }
-
+    private static final List<String> meatToppings = new ArrayList<>(Arrays.asList("Steak", "Ham", "Salami", "Roast Beef",
+            "Chicken", "Bacon"));
     private static final List<String> cheeseToppings = new ArrayList<>();
     static{
         cheeseToppings.add("American");
@@ -29,7 +21,6 @@ public class PremiumTopping extends Topping {
 
     // Constructor for a premium topping
     public PremiumTopping(String name) {
-        super(name);
         // Additional initialization for premium topping, if needed
         this.isExtraMeat = false;
         this.isExtraCheese = false;
@@ -57,6 +48,14 @@ public class PremiumTopping extends Topping {
 
     public static List<String> getCheeseToppings(){
         return new ArrayList<>(cheeseToppings);
+    }
+
+    public void giveMeMeat(){
+        isExtraMeat = true;
+    }
+
+    public void giveMeCheese(){
+        isExtraCheese = true;
     }
 
     // Concrete implementation of the abstract method from the superclass
