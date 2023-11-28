@@ -17,7 +17,7 @@ public class Side {
         return auJus;
     }
 
-    public String getCondiments(){
+    public static String getCondiments(){
         return String.valueOf(new ArrayList<String>(condiments));
     }
 }

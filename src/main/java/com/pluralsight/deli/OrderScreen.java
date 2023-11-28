@@ -8,6 +8,38 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OrderScreen {
+    public void show() {
+        displayOrderOptions();
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            int choice = getUserChoice(scanner);
+
+            switch (choice) {
+                case 1:
+                    createSandwich();
+                    break;
+                case 2:
+                    // Logic for viewing order history or other options
+                    break;
+                case 3:
+                    System.out.println("Returning to Home Screen...");
+                    return; // This will exit the show() method and go back to the HomeScreen loop
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        }
+    }
+
+    private void displayOrderOptions() {
+        System.out.println("Order Screen:");
+        System.out.println("1. Build and Place an Order");
+        System.out.println("2. View Order History");
+        System.out.println("3. Return to Home Screen");
+        System.out.print("Enter your choice: ");
+    }
+
     public Sandwich createSandwich() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Build your Sandwich");
@@ -56,9 +88,6 @@ public class OrderScreen {
 
         return sandwich;
     }
-
-
-
 
     public int getUserChoice(Scanner scanner) {
         while (!scanner.hasNextInt()) {
@@ -122,12 +151,13 @@ public class OrderScreen {
 
     public List<String> getRegularToppings() {
         Scanner scanner = new Scanner(System.in);
+        RegularTopping regularTopping = new RegularTopping();
         List<String> selectedToppings = new ArrayList<>();
 
         System.out.println("Choose regular toppings (enter one at a time, type 'done' to finish):");
 
         // Display available regular toppings
-        System.out.println("Available regular toppings: " + String.join(", ", RegularTopping.getTopping()));
+        System.out.println("Available regular toppings: " + String.join(", ", regularTopping.getTopping()));
 
         // Continue adding toppings until the user enters 'done'
         while (true) {
@@ -139,7 +169,7 @@ public class OrderScreen {
             }
 
             // Validate if the entered topping is valid
-            if (!RegularTopping.getTopping().contains(topping.toLowerCase())) {
+            if (!regularTopping.getTopping().contains(topping.toLowerCase())) {
                 System.out.println("Invalid topping. Please choose from the available options.");
                 continue;
             }

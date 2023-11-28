@@ -11,6 +11,9 @@ public class Sandwich implements GetPrice{
     private boolean toasted;
     private boolean extraMeat;
     private boolean extraCheese;
+    private String meat;
+    private String cheese;
+    private List<String> sauces;
 
     // Constructor to initialize a sandwich with its attributes
     public Sandwich(int size, String bread, List<String> toppings, boolean toasted, boolean extraMeat, boolean extraCheese) {
@@ -71,6 +74,30 @@ public class Sandwich implements GetPrice{
 
     public void setExtraCheese(boolean extraCheese) {
         this.extraCheese = extraCheese;
+    }
+
+    public String getMeat() {
+        return meat;
+    }
+
+    public void setMeat(String meat) {
+        this.meat = meat;
+    }
+
+    public String getCheese() {
+        return cheese;
+    }
+
+    public void setCheese(String cheese) {
+        this.cheese = cheese;
+    }
+
+    public List<String> getSauces() {
+        return sauces;
+    }
+
+    public void setSauces(List<String> sauces) {
+        this.sauces = sauces;
     }
 
     // Method to calculate the price of the sandwich
