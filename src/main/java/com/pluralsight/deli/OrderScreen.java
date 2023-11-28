@@ -86,7 +86,7 @@ public class OrderScreen {
         System.out.println("Extra Cheese: " + extraCheese);
         System.out.println("Sauces: " + sides);
 
-        
+
 
 
         return sandwich;
@@ -109,8 +109,6 @@ public class OrderScreen {
         System.out.println("2. 8\"");
         System.out.println("3. 12\"");
 
-        barrier('=');
-
         int choice = getUserChoice(scanner);
         switch (choice) {
             case 1:
@@ -128,6 +126,7 @@ public class OrderScreen {
     public String getBread() {
         Scanner scanner = new Scanner(System.in);
 
+        barrier('=');
         System.out.println("Select the type of bread:");
         System.out.println("1. White");
         System.out.println("2. Wheat");
@@ -157,6 +156,7 @@ public class OrderScreen {
         RegularTopping regularTopping = new RegularTopping();
         List<String> selectedToppings = new ArrayList<>();
 
+        barrier('=');
         System.out.println("Choose regular toppings (enter one at a time, type 'done' to finish):");
 
         // Display available regular toppings
@@ -254,6 +254,7 @@ public class OrderScreen {
     public String getMeatTopping() {
         Scanner scanner = new Scanner(System.in);
 
+        barrier('=');
         System.out.println("Choose one meat topping:");
 
         // Display available meat toppings
@@ -264,7 +265,7 @@ public class OrderScreen {
         String meat = scanner.nextLine();
 
         // Validate if the entered meat topping is valid
-        if (!PremiumTopping.getMeatToppings().contains(meat)) {
+        if (!PremiumTopping.getMeatToppings().stream().anyMatch(t -> t.equalsIgnoreCase(meat))) {
             System.out.println("Invalid meat topping. Please choose from the available options.");
             return getMeatTopping(); // Recursively call the method to retry
         }
@@ -274,7 +275,7 @@ public class OrderScreen {
 
     public String getCheeseTopping() {
         Scanner scanner = new Scanner(System.in);
-
+        barrier('=');
         System.out.println("Choose one cheese topping:");
 
         // Display available cheese toppings
@@ -285,7 +286,7 @@ public class OrderScreen {
         String cheese = scanner.nextLine();
 
         // Validate if the entered cheese topping is valid
-        if (!PremiumTopping.getCheeseToppings().contains(cheese)) {
+        if (!PremiumTopping.getCheeseToppings().stream().anyMatch(t -> t.equalsIgnoreCase(cheese)))  {
             System.out.println("Invalid cheese topping. Please choose from the available options.");
             return getCheeseTopping(); // Recursively call the method to retry
         }
@@ -296,6 +297,7 @@ public class OrderScreen {
     public boolean isExtraMeat() {
         Scanner scanner = new Scanner(System.in);
 
+        barrier('=');
         System.out.print("Do you want extra meat? (yes/no): ");
         String choice = scanner.nextLine().toLowerCase();
 
@@ -305,6 +307,7 @@ public class OrderScreen {
     public boolean isExtraCheese() {
         Scanner scanner = new Scanner(System.in);
 
+        barrier('=');
         System.out.print("Do you want extra cheese? (yes/no): ");
         String choice = scanner.nextLine().toLowerCase();
 
@@ -315,6 +318,7 @@ public class OrderScreen {
         Scanner scanner = new Scanner(System.in);
         List<String> selectedSauces = new ArrayList<>();
 
+        barrier('=');
         System.out.println("Choose sauces for your sandwich (enter one at a time, type 'done' to finish):");
 
         // Display available sauces
