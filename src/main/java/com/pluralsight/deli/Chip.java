@@ -6,6 +6,7 @@ import java.util.List;
 
 // Concrete class representing chips
 public class Chip implements GetPrice {
+
     // Attributes for chips
     private String name; // or 'flavor' depending on your preference
     private static final List<String> availableFlavors = new ArrayList<>(Arrays.asList("sea salt", "barbecue", "sour cream & onion")); // ArrayList to store available chip flavors
@@ -37,4 +38,11 @@ public class Chip implements GetPrice {
     }
 
     // add more methods needed for chip class
+
+    @Override
+    public String toString() {
+        return "Chip{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }
