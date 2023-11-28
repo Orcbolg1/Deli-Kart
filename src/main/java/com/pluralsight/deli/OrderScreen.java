@@ -86,6 +86,9 @@ public class OrderScreen {
         System.out.println("Extra Cheese: " + extraCheese);
         System.out.println("Sauces: " + sides);
 
+        
+
+
         return sandwich;
     }
 
@@ -102,9 +105,9 @@ public class OrderScreen {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Select Sandwich Size: ");
-        System.out.println("(4\")");
-        System.out.println("(8\")");
-        System.out.println("(12\")");
+        System.out.println("1. 4\"");
+        System.out.println("2. 8\"");
+        System.out.println("3. 12\"");
 
         barrier('=');
 
@@ -190,7 +193,7 @@ public class OrderScreen {
         System.out.println("Available chips to choose: ");
         for (String flavor : Chip.getAvailableFlavors()) {
             System.out.println(flavor);
-            barrier('=');
+
         }
 
         // Ask the user to select a chip flavour
@@ -204,6 +207,7 @@ public class OrderScreen {
             //create an instance of the chip class with the selected flavor
             Chip chip = new Chip(selectedFlavour);
             System.out.println("Chips added to the order: " + chip);
+
         } else {
             System.out.println("Invalid Chip Flavor. Chips not added to the order.");
         }
@@ -218,7 +222,7 @@ public class OrderScreen {
         System.out.println("Available drinks to choose: ");
         for (String flavour : Drink.getAvailableFlavors()) {
             System.out.println(flavour);
-            barrier('=');
+
         }
 
         // Ask the user to select a chip flavour
