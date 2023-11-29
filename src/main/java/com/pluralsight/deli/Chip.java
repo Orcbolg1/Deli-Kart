@@ -38,8 +38,6 @@ public class Chip implements GetPrice {
 
     @Override
     public String toString() {
-        return "Chip{" +
-                "name='" + name + '\'' +
-                '}';
+        return name + " chips";
     }
 }
