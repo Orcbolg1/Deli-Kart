@@ -77,7 +77,7 @@ public class OrderScreen {
 
         // Print out the order details
         System.out.println("Order Details:");
-        System.out.println("Size: " + size);
+        System.out.println("Size: " + size + " inches");
         System.out.println("Bread: " + bread);
         System.out.println("Regular Toppings: " + regularTopping);
         System.out.println("Meat: " + meat);
@@ -93,7 +93,8 @@ public class OrderScreen {
     public int getUserChoice(Scanner scanner) {
         while (!scanner.hasNextInt()) {
             System.out.println("Invalid input. Please enter a number.");
-            scanner.next(); // Consume the invalid input
+            scanner.nextInt(); // Consume the invalid input
+            scanner.nextLine();
         }
         return scanner.nextInt();
     }
@@ -103,9 +104,9 @@ public class OrderScreen {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Select Sandwich Size: ");
-        System.out.println("1. 4\"");
-        System.out.println("2. 8\"");
-        System.out.println("3. 12\"");
+        System.out.println("1) 4\"");
+        System.out.println("2) 8\"");
+        System.out.println("3) 12\"");
 
         int choice = getUserChoice(scanner);
         switch (choice) {
@@ -202,7 +203,7 @@ public class OrderScreen {
 
             //create an instance of the chip class with the selected flavor
             Chip chip = new Chip(selectedFlavour);
-            System.out.println("Chips added to the order: " + chip);
+            System.out.println(chip + " added to your order");
 
         } else {
             System.out.println("Invalid Chip Flavor. Chips not added to the order.");

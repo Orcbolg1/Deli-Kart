@@ -53,7 +53,7 @@ public class Drink implements GetPrice {
 
     @Override
     public String toString() {
-        return "size =" + size +
+        return "size = " + size +
                 ", " + flavor +
                 "\n Price = $" + basePrice;
     }
