@@ -8,6 +8,33 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OrderScreen {
+    private boolean hasChips;
+    private boolean hasDrink;
+    private Chip selectedChip;
+    private Drink selectedDrink;
+
+    public OrderScreen() {
+        this.hasChips = false;
+        this.hasDrink = false;
+    }
+
+    public boolean hasChips() {
+        return hasChips;
+    }
+
+    public void setHasChips(boolean hasChips) {
+        this.hasChips = hasChips;
+    }
+
+    public boolean hasDrink() {
+        return hasDrink;
+    }
+
+    public void setHasDrink(boolean hasDrink) {
+        this.hasDrink = hasDrink;
+    }
+
+
     public void show() {
         displayOrderOptions();
 
@@ -61,11 +88,20 @@ public class OrderScreen {
         // Add sauces to the sandwich, assuming the Sandwich class has a method to set sauces
         sandwich.setSauces(sides);
 
+
+//        double totalPrice = calculateTotalPrice(sandwich, hasChips, hasDrink);
+
+        // Ask if the user wants the sandwich toasted
+        System.out.println("Do you want your bread toasted? (yes/no): ");
+        boolean toasted = scanner.next().equalsIgnoreCase("yes");
+
         // Ask if the user wants to add chips
         System.out.println("Do you want to add chips to your order? (yes/no): ");
         String addChipsChoice = scanner.next().toLowerCase();
         if (addChipsChoice.equals("yes")) {
             addChipsToOrder();
+            // Update the total price after adding chips
+//            totalPrice += Chip.getPrice();
         }
 
         // Ask if the user wants to add drinks
@@ -73,12 +109,15 @@ public class OrderScreen {
         String addDrinksChoice = scanner.next().toLowerCase();
         if (addDrinksChoice.equals("yes")) {
             addDrinksToOrder();
+            // Update the total price after adding drinks
+//            totalPrice += Drink.getPrice();
         }
 
         // Print out the order details
         System.out.println("Order Details:");
         System.out.println("Size: " + size + " inches");
         System.out.println("Bread: " + bread);
+        System.out.println("Toasted: " + toasted);
         System.out.println("Regular Toppings: " + regularTopping);
         System.out.println("Meat: " + meat);
         System.out.println("Cheese: " + cheese);
@@ -86,8 +125,42 @@ public class OrderScreen {
         System.out.println("Extra Cheese: " + extraCheese);
         System.out.println("Sauces: " + sides);
 
+        // Print the selected chips and drinks
+        printSelectedChips();
+        printSelectedDrink();
+
+//        System.out.println("Total Price: $" + totalPrice);
+
 
         return sandwich;
+    }
+
+    public double calculateTotalPrice(List<PremiumTopping> premiumToppings, List<Sandwich> sandwiches, boolean hasChips, boolean hasDrink) {
+        double totalPrice = 0.0;
+
+//        // Calculate the total price for premium toppings
+//        for (PremiumTopping premiumTopping : premiumToppings) {
+//            totalPrice += getToppingPrice(Sandwich sandwich, String meat, String cheese, boolean extraMeat, boolean extraCheese);
+//        }
+
+        // Calculate the total price for sandwiches
+        for (Sandwich sandwich : sandwiches) {
+            totalPrice += sandwich.getPrice();
+        }
+
+        // Check if chips are added
+        if (hasChips) {
+            // Add the price of chips
+            //totalPrice += Chip.getPrice();
+        }
+
+        // Check if drink is added
+        if (hasDrink) {
+            // Add the price of the drink
+            //totalPrice += Drink.getPrice();
+        }
+
+        return totalPrice;
     }
 
     public int getUserChoice(Scanner scanner) {
@@ -185,26 +258,23 @@ public class OrderScreen {
 
     //Method to add chips to the order
     public void addChipsToOrder() {
+        Scanner scanner = new Scanner(System.in);
 
-        //Display the available Chip flavour
+        // Display the available chip flavors
         System.out.println("Available chips to choose: ");
         for (String flavor : Chip.getAvailableFlavors()) {
             System.out.println(flavor);
-
         }
 
-        // Ask the user to select a chip flavour
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the chip flavour: ");
-        String selectedFlavour = scanner.nextLine().trim().toLowerCase(); // Convert to lower case
+        // Ask the user to select a chip flavor
+        System.out.println("Enter the chip flavor: ");
+        String selectedFlavor = scanner.nextLine().trim().toLowerCase();
 
-        //check if the selected flavour is valid
-        if (Chip.getAvailableFlavors().stream().anyMatch(flavor -> flavor.equalsIgnoreCase(selectedFlavour))) {
-
-            //create an instance of the chip class with the selected flavor
-            Chip chip = new Chip(selectedFlavour);
-            System.out.println(chip + " added to your order");
-
+        if (Chip.getAvailableFlavors().contains(selectedFlavor)) {
+            // Create an instance of the chip class with the selected flavor
+            selectedChip = new Chip(selectedFlavor);
+            System.out.println("Chips added to the order: " + selectedChip);
+            setHasChips(true);
         } else {
             System.out.println("Invalid Chip Flavor. Chips not added to the order.");
         }
@@ -213,40 +283,37 @@ public class OrderScreen {
 
     //Method to add drinks to the order
     public void addDrinksToOrder() {
-        //Display the available Drink flavour
-        System.out.println("Available drinks to choose: ");
-        for (String flavour : Drink.getAvailableFlavors()) {
-            System.out.println(flavour);
+        Scanner scanner = new Scanner(System.in);
 
+        // Display the available drink flavors
+        System.out.println("Available drinks to choose: ");
+        for (String flavor : Drink.getAvailableFlavors()) {
+            System.out.println(flavor);
         }
 
-        // Ask the user to select a chip flavour
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the Drink flavour: ");
-        String selectedFlavour = scanner.nextLine().trim().toLowerCase(); // Convert to lower case
+        // Ask the user to select a drink flavor
+        System.out.println("Enter the Drink flavor: ");
+        String selectedFlavor = scanner.nextLine().trim().toLowerCase();
 
-        //check if the selected flavour is valid
-        if (Drink.getAvailableFlavors().stream().anyMatch(flavor -> flavor.equalsIgnoreCase(selectedFlavour))) {
+        if (Drink.getAvailableFlavors().contains(selectedFlavor)) {
             // Ask the user to select a drink size
             System.out.println("Available Drink Sizes: S (Small), M (Medium), L (Large)");
             System.out.println("Enter your drink size: ");
             char selectedSize = scanner.next().toUpperCase().charAt(0);
 
-            //Check to see if selected size is valid
+            // Check if selected size is valid
             if (selectedSize == 'S' || selectedSize == 'M' || selectedSize == 'L') {
-                //Create an instance of the Drink class with the selected flavor and size
-                Drink drink = new Drink(selectedSize, selectedFlavour);
-                System.out.println("Drink added to the order: " + drink);
-                barrier('=');
+                // Create an instance of the Drink class with the selected flavor and size
+                selectedDrink = new Drink(selectedSize, selectedFlavor);
+                System.out.println("Drink added to the order: " + selectedDrink);
+                setHasDrink(true);
             } else {
                 System.out.println("Invalid Drink Size. Drink not added to the order.");
-                barrier('=');
             }
         } else {
-            System.out.println("Invalid Drink Flavour. Drink not added to the order.");
-            barrier('=');
+            System.out.println("Invalid Drink Flavor. Drink not added to the order.");
         }
-
+        barrier('=');
     }
 
     public String getMeatTopping() {
@@ -338,6 +405,22 @@ public class OrderScreen {
         barrier('=');
         return selectedSauces;
     }
+
+    public void printSelectedChips() {
+        if (hasChips) {
+            System.out.println("Selected Chips: " + selectedChip);
+        } else {
+            System.out.println("No chips selected.");
+        }
+    }
+
+    public void printSelectedDrink() {
+        if (hasDrink) {
+            System.out.println("Selected Drink: " + selectedDrink);
+        } else {
+            System.out.println("No drink selected.");
+        }
+    }
     public double getToppingPrice(Sandwich sandwich, String meat, String cheese, boolean extraMeat, boolean extraCheese) {
         // Add 1 dollar to the base price for premium toppings
         double toppingPrice = 0;
@@ -391,6 +474,7 @@ public class OrderScreen {
         }
         return toppingPrice + extraPrice;
     }
+
     public static void barrier(char character) {
         for (int i = 0; i < 30; i++) {
             System.out.print(character);
