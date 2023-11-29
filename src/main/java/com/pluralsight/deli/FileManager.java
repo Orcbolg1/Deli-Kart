@@ -9,7 +9,13 @@ public class FileManager {
     public static void writeOrderToReceipt(Sandwich sandwich) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("receipt.txt"))) {
             OrderScreen orderScreen = new OrderScreen();
-
+            double sandwichPrice = orderScreen.calculateTotalPrice(sandwich, orderScreen.hasChips(),
+                    orderScreen.hasDrink(), sandwich.getMeat(), sandwich.getCheese(),
+                    sandwich.isExtraMeat(), sandwich.isExtraCheese());
+            double drinkPrice = orderScreen.drinkPrice();
+            double chipPrice = orderScreen.chipPrice();
+            double totalPrice = 0;
+            totalPrice += sandwichPrice + drinkPrice + chipPrice;
             writer.write("Order Details:");
             writer.newLine();
             writer.write("Size: " + sandwich.getSize());
@@ -30,9 +36,9 @@ public class FileManager {
             writer.newLine();
             writer.write("Sauces: " + sandwich.getSauces());
             writer.newLine();
-            writer.write("Total Price: $" + orderScreen.calculateTotalPrice(sandwich, orderScreen.hasChips(),
-                            orderScreen.hasDrink(), sandwich.getMeat(), sandwich.getCheese(),
-                    sandwich.isExtraMeat(), sandwich.isExtraCheese()));
+            writer.write("Drink Price: $" + drinkPrice);
+            writer.newLine();
+            writer.write("Total Price: $" + totalPrice);
             //writer.write("Total Price: $" +
 
 
@@ -42,7 +48,7 @@ public class FileManager {
         }
     }
 
-    public static List<String> loadReceipt(){
+    public static List<String> loadReceipt() {
         List<String> previousOrders = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("receipt.txt"))) {

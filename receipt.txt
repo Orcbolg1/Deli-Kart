@@ -1,11 +1,12 @@
 Order Details:
-Size: 12
-Bread: Wheat
+Size: 4
+Bread: White
 Toasted: false
-Regular Toppings: [lettuce]
-Meat: salami
+Regular Toppings: []
+Meat: ham
 Cheese: provolone
 Extra Meat: true
 Extra Cheese: true
-Sauces: [Mayonnaise]
-Total Price: $16.15
+Sauces: []
+Drink Price: $0.0
+Total Price: $8.05
