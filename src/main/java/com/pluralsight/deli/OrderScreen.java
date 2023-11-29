@@ -156,13 +156,23 @@ public class OrderScreen {
 
         //The ? symbol is part of the conditional (ternary) operator in Java. The expression condition ? valueIfTrue : valueIfFalse is a shorthand way of writing an if-else statement.
         // so if hasDrink ? and hasChips ? means that if its true it will get the price if else it returns 0.
-        double drinkPrice = hasDrink ? selectedDrink.getPrice() : 0.0;
-        double chipPrice = hasChips ? selectedChip.getPrice() : 0.0;
+        double drinkPrice = drinkPrice();
+        double chipPrice = chipPrice();
 
         // Calculate the total price
-        totalPrice = toppingPrice + drinkPrice + chipPrice + sandwich.getPrice();
+        totalPrice += toppingPrice + drinkPrice + chipPrice + sandwich.getPrice();
 
         return totalPrice;
+    }
+
+    public double drinkPrice(){
+        double drinkPrice = 0.0;
+        return drinkPrice = drinkPrice + (hasDrink ? selectedDrink.getPrice() : 0.0);
+    }
+
+    public double chipPrice(){
+        double chipPrice = 0;
+        return chipPrice += hasChips ? selectedChip.getPrice() : 0.0;
     }
 
     public int getUserChoice(Scanner scanner) {
