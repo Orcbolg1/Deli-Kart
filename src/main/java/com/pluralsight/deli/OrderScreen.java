@@ -89,8 +89,6 @@ public class OrderScreen {
         sandwich.setSauces(sides);
 
 
-//        double totalPrice = calculateTotalPrice(sandwich, hasChips, hasDrink);
-
         // Ask if the user wants the sandwich toasted
         System.out.println("Do you want your bread toasted? (yes/no): ");
         boolean toasted = scanner.next().equalsIgnoreCase("yes");
@@ -129,7 +127,8 @@ public class OrderScreen {
         printSelectedChips();
         printSelectedDrink();
 
-//        System.out.println("Total Price: $" + totalPrice);
+        double totalPrice = calculateTotalPrice(sandwich, hasChips, hasDrink, meat, cheese, extraMeat, extraCheese);
+        System.out.println("Total Price: $" + totalPrice);
 
 
         return sandwich;
@@ -138,32 +137,18 @@ public class OrderScreen {
     public double calculateTotalPrice(Sandwich sandwich, boolean hasChips, boolean hasDrink, String meat, String cheese, boolean extraMeat, boolean extraCheese) {
         double totalPrice = 0.0;
 
-//        // Calculate the total price for premium toppings
-//        for (PremiumTopping premiumTopping : premiumToppings) {
-//            totalPrice += getToppingPrice(Sandwich sandwich, String meat, String cheese, boolean extraMeat, boolean extraCheese);
-//        }
-
+//
         // Calculate the total price for premium toppings
-        totalPrice += getToppingPrice(sandwich, meat, cheese, extraMeat, extraCheese) + selectedDrink.getPrice() + selectedChip.getPrice() +
-                sandwich.getPrice();
-        
-   /* // Calculate the total price for sandwiches
-        for (Sandwich sandwich : sandwiches) {
-            totalPrice += sandwich.getPrice();
-        }
+        double toppingPrice = getToppingPrice(sandwich, meat, cheese, extraMeat, extraCheese);
 
-        // Check if chips are added
-        if (hasChips) {
-            // Add the price of chips
-            //totalPrice += Chip.getPrice();
-        }
+        //The ? symbol is part of the conditional (ternary) operator in Java. The expression condition ? valueIfTrue : valueIfFalse is a shorthand way of writing an if-else statement.
+        // so if hasDrink ? and hasChips ? means that if its true it will get the price if else it returns 0.
+        double drinkPrice = hasDrink ? selectedDrink.getPrice() : 0.0;
+        double chipPrice = hasChips ? selectedChip.getPrice() : 0.0;
 
-        // Check if drink is added
-        if (hasDrink) {
-            // Add the price of the drink
-            //totalPrice += Drink.getPrice();
-        }
-*/
+        // Calculate the total price
+        totalPrice = toppingPrice + drinkPrice + chipPrice + sandwich.getPrice();
+
         return totalPrice;
     }
 
