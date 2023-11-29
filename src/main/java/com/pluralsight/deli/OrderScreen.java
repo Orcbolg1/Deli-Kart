@@ -313,5 +313,5 @@ public class OrderScreen {
         }
         System.out.println();//Move to the next line after printing out the characters
     }
-    
+
 }
