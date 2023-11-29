@@ -338,7 +338,59 @@ public class OrderScreen {
         barrier('=');
         return selectedSauces;
     }
+    public double getToppingPrice(Sandwich sandwich, String meat, String cheese, boolean extraMeat, boolean extraCheese) {
+        // Add 1 dollar to the base price for premium toppings
+        double toppingPrice = 0;
+        if(!meat.isEmpty()){
+            if (sandwich.getSize() == 4){
+                toppingPrice += 1;
+            }
+            if (sandwich.getSize() == 8){
+                toppingPrice += 2;
+            }
+            if (sandwich.getSize() == 12){
+                toppingPrice += 3;
+            }
+        }
 
+        if(!cheese.isEmpty()){
+            if (sandwich.getSize() == 4){
+                toppingPrice += .75;
+            }
+            if (sandwich.getSize() == 8){
+                toppingPrice += 1.50;
+            }
+            if (sandwich.getSize() == 12){
+                toppingPrice += 2.25;
+            }
+        }
+
+        double extraPrice = 0;
+        if (extraMeat){
+            if (sandwich.getSize() == 4){
+                extraPrice += .50;
+            }
+            if (sandwich.getSize() == 8){
+                extraPrice += 1.00;
+            }
+            if (sandwich.getSize() == 12){
+                extraPrice += 1.50;
+            }
+        }
+
+        if (extraCheese){
+            if (sandwich.getSize() == 4){
+                extraPrice += .30;
+            }
+            if (sandwich.getSize() == 8){
+                extraPrice += .60;
+            }
+            if (sandwich.getSize() == 12){
+                extraPrice += .90;
+            }
+        }
+        return toppingPrice + extraPrice;
+    }
     public static void barrier(char character) {
         for (int i = 0; i < 30; i++) {
             System.out.print(character);
