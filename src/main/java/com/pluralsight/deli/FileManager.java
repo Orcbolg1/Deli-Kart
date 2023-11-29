@@ -30,7 +30,11 @@ public class FileManager {
             writer.newLine();
             writer.write("Sauces: " + sandwich.getSauces());
             writer.newLine();
+            writer.write("Total Price: $" + orderScreen.calculateTotalPrice(sandwich, orderScreen.hasChips(),
+                            orderScreen.hasDrink(), sandwich.getMeat(), sandwich.getCheese(),
+                    sandwich.isExtraMeat(), sandwich.isExtraCheese()));
             //writer.write("Total Price: $" +
+
 
             System.out.println("Thank You Come Again!");
         } catch (IOException e) {
