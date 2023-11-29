@@ -11,15 +11,12 @@ public class Drink implements GetPrice {
     private String flavor;
     //Arrays.asList takes in an array for the list since it's final anyway. more beginner-developer-friendly to understand
     private static final List<String> availableFlavors = new ArrayList<>(Arrays.asList("Cola", "Fanta", "Sprite",
-            "Root-Beer", "Mountain Dew")); // ArrayList to store available flavors
+            "Root Beer", "Mountain Dew")); // ArrayList to store available flavors
     private final double basePrice = 2.0; // Base price for a drink
 
     // Constructor for a drink
     public Drink(char size, String flavor) {
         this.size = size;
-        if (!availableFlavors.contains(flavor)) {
-            throw new IllegalArgumentException("Invalid flavor: " + flavor);
-        }
         this.flavor = flavor;
     }
 
@@ -54,4 +51,10 @@ public class Drink implements GetPrice {
 
     // Additional methods specific to the drink, if any
 
+    @Override
+    public String toString() {
+        return "size = " + size +
+                ", " + flavor +
+                "\n Price = $" + basePrice;
+    }
 }
