@@ -48,8 +48,20 @@ public class OrderScreen {
                     createSandwich();
                     break;
                 case 2:
-                    // Logic for viewing order history or other options
-                    break;
+                    List<String> previousOrders = FileManager.loadReceipt();
+                    for (String order : previousOrders) {
+                        System.out.println(order);
+                    }
+
+                    // Prompt user to return to order screen or keep viewing
+                    System.out.println("Do you want to go back to the order screen? (yes/no): ");
+                    String goBackChoice = scanner.next().toLowerCase();
+                    if (goBackChoice.equals("No")) {
+                        continue; //Continue to the next order.
+                    } else {
+                        System.out.println("Returning to Home Screen...");
+                        return; // Return to the order screen.
+                    }
                 case 3:
                     System.out.println("Returning to Home Screen...");
                     return; // This will exit the show() method and go back to the HomeScreen loop
@@ -130,6 +142,7 @@ public class OrderScreen {
         double totalPrice = calculateTotalPrice(sandwich, hasChips, hasDrink, meat, cheese, extraMeat, extraCheese);
         System.out.println("Total Price: $" + totalPrice);
 
+        FileManager.writeOrderToReceipt(sandwich);
 
         return sandwich;
     }
