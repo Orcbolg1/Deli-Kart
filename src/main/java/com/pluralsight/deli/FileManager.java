@@ -8,6 +8,8 @@ import java.util.List;
 public class FileManager {
     public static void writeOrderToReceipt(Sandwich sandwich) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("receipt.txt"))) {
+            OrderScreen orderScreen = new OrderScreen();
+
             writer.write("Order Details:");
             writer.newLine();
             writer.write("Size: " + sandwich.getSize());
@@ -28,23 +30,11 @@ public class FileManager {
             writer.newLine();
             writer.write("Sauces: " + sandwich.getSauces());
             writer.newLine();
+            //writer.write("Total Price: $" +
 
-//            // If chips were added to the order, write the details
-//            if (OrderScreen.hasChips()) {
-//                writer.write("Chips: " + Chip.getFlavor());
-//                writer.newLine();
-//            }
-//
-//            // If drinks were added to the order, write the details
-//            if (OrderScreen.hasDrinks()) {
-//                Drink drink = sandwich.getDrink();
-//                writer.write("Drink: " + drink.getFlavor() + " (Size: " + drink.getSize() + ")");
-//                writer.newLine();
-//            }
-
-            System.out.println("Order details written to receipt.txt successfully.");
+            System.out.println("Thank You Come Again!");
         } catch (IOException e) {
-            System.out.println("Error writing to receipt file: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -57,7 +47,7 @@ public class FileManager {
                 previousOrders.add(line);
             }
         } catch (IOException e) {
-            System.out.println("Error reading previous orders: " + e.getMessage());
+            System.out.println("Error loading receipts!: " + e.getMessage());
         }
 
         return previousOrders;
