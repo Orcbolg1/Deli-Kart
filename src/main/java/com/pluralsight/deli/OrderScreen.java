@@ -135,7 +135,7 @@ public class OrderScreen {
         return sandwich;
     }
 
-    public double calculateTotalPrice(List<PremiumTopping> premiumToppings, List<Sandwich> sandwiches, boolean hasChips, boolean hasDrink) {
+    public double calculateTotalPrice(Sandwich sandwich, boolean hasChips, boolean hasDrink, String meat, String cheese, boolean extraMeat, boolean extraCheese) {
         double totalPrice = 0.0;
 
 //        // Calculate the total price for premium toppings
@@ -143,7 +143,11 @@ public class OrderScreen {
 //            totalPrice += getToppingPrice(Sandwich sandwich, String meat, String cheese, boolean extraMeat, boolean extraCheese);
 //        }
 
-        // Calculate the total price for sandwiches
+        // Calculate the total price for premium toppings
+        totalPrice += getToppingPrice(sandwich, meat, cheese, extraMeat, extraCheese) + selectedDrink.getPrice() + selectedChip.getPrice() +
+                sandwich.getPrice();
+        
+   /* // Calculate the total price for sandwiches
         for (Sandwich sandwich : sandwiches) {
             totalPrice += sandwich.getPrice();
         }
@@ -159,7 +163,7 @@ public class OrderScreen {
             // Add the price of the drink
             //totalPrice += Drink.getPrice();
         }
-
+*/
         return totalPrice;
     }
 
@@ -421,54 +425,55 @@ public class OrderScreen {
             System.out.println("No drink selected.");
         }
     }
+
     public double getToppingPrice(Sandwich sandwich, String meat, String cheese, boolean extraMeat, boolean extraCheese) {
         // Add 1 dollar to the base price for premium toppings
         double toppingPrice = 0;
-        if(!meat.isEmpty()){
-            if (sandwich.getSize() == 4){
+        if (!meat.isEmpty()) {
+            if (sandwich.getSize() == 4) {
                 toppingPrice += 1;
             }
-            if (sandwich.getSize() == 8){
+            if (sandwich.getSize() == 8) {
                 toppingPrice += 2;
             }
-            if (sandwich.getSize() == 12){
+            if (sandwich.getSize() == 12) {
                 toppingPrice += 3;
             }
         }
 
-        if(!cheese.isEmpty()){
-            if (sandwich.getSize() == 4){
+        if (!cheese.isEmpty()) {
+            if (sandwich.getSize() == 4) {
                 toppingPrice += .75;
             }
-            if (sandwich.getSize() == 8){
+            if (sandwich.getSize() == 8) {
                 toppingPrice += 1.50;
             }
-            if (sandwich.getSize() == 12){
+            if (sandwich.getSize() == 12) {
                 toppingPrice += 2.25;
             }
         }
 
         double extraPrice = 0;
-        if (extraMeat){
-            if (sandwich.getSize() == 4){
+        if (extraMeat) {
+            if (sandwich.getSize() == 4) {
                 extraPrice += .50;
             }
-            if (sandwich.getSize() == 8){
+            if (sandwich.getSize() == 8) {
                 extraPrice += 1.00;
             }
-            if (sandwich.getSize() == 12){
+            if (sandwich.getSize() == 12) {
                 extraPrice += 1.50;
             }
         }
 
-        if (extraCheese){
-            if (sandwich.getSize() == 4){
+        if (extraCheese) {
+            if (sandwich.getSize() == 4) {
                 extraPrice += .30;
             }
-            if (sandwich.getSize() == 8){
+            if (sandwich.getSize() == 8) {
                 extraPrice += .60;
             }
-            if (sandwich.getSize() == 12){
+            if (sandwich.getSize() == 12) {
                 extraPrice += .90;
             }
         }
