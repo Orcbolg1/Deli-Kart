@@ -19,7 +19,7 @@ public class Chip implements GetPrice {
 
     // Concrete implementation of the abstract method from the interface
     @Override
-    public double getPrice() {
+    public  double getPrice() {
         // Return the final price for adding chips
         return additionalPrice;
     }
