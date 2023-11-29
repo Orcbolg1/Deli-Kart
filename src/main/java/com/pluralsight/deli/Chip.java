@@ -9,7 +9,9 @@ public class Chip implements GetPrice {
 
     // Attributes for chips
     private String name; // or 'flavor' depending on your preference
-    private static final List<String> availableFlavors = new ArrayList<>(Arrays.asList("Sea Salt", "BBQ", "Sour Cream & Onion")); // ArrayList to store available chip flavors
+
+    private static final List<String> availableFlavors = new ArrayList<>(Arrays.asList("sea salt", "bbq", "sour cream & onion")); // ArrayList to store available chip flavors
+
     private final double additionalPrice = 1.5; // Final price for adding chips
 
     // Constructor for chips
