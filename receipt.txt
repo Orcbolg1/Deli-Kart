@@ -20,4 +20,111 @@ Cheese: cheddar
 Extra Meat: true
 Extra Cheese: false
 Sauces: [Thousand Islands]
-Total Price: $15.25
+Total Price: $15.25Date and Time: 11-30-2023-09:12:48
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: roast beef
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mayonnaise]
+Total Price: $11.55
+Date and Time: 11-30-2023-09:15:12
+Order Details:
+Size: 8
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: ham
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mustard]
+Total Price: $15.6
+Date and Time: 11-30-2023-10:22:13
+Order Details:
+Size: 8
+Bread: Rye
+Toasted: false
+Regular Toppings: []
+Meat: chicken
+Cheese: swiss
+Extra Meat: true
+Extra Cheese: true
+Sauces: [ranch]
+Total Price: $12.1
+Date and Time: 11-30-2023-10:24:59
+Order Details:
+Size: 4
+Bread: Wheat
+Toasted: false
+Regular Toppings: []
+Meat: chicken
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: []
+Total Price: $8.05
+Date and Time: 11-30-2023-10:33:16
+Order Details:
+Size: 8
+Bread: Wheat
+Toasted: false
+Regular Toppings: []
+Meat: ham
+Cheese: cheddar
+Extra Meat: true
+Extra Cheese: true
+Sauces: [, ]
+Total Price: $12.1
+Date and Time: 11-30-2023-10:34:27
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: chicken
+Cheese: swiss
+Extra Meat: true
+Extra Cheese: true
+Sauces: []
+Total Price: $8.05
+Date and Time: 11-30-2023-10:42:24
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: bacon
+Cheese: cheddar
+Extra Meat: false
+Extra Cheese: false
+Sauces: []
+Total Price: $8.75
+Date and Time: 11-30-2023-10:46:09
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: bacon
+Cheese: swiss
+Extra Meat: false
+Extra Cheese: false
+Sauces: []
+Total Price: $7.25
+Date and Time: 11-30-2023-10:46:50
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: ham
+Cheese: cheddar
+Extra Meat: false
+Extra Cheese: false
+Sauces: [mayonnaise, ]
+Total Price: $8.75

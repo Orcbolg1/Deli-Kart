@@ -40,6 +40,8 @@ public class FileManager {
             writer.newLine();
 
             System.out.println("Thank You Come Again!");
+
+
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }

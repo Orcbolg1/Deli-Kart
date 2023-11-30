@@ -1,8 +1,5 @@
 package com.pluralsight.deli;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,7 +14,6 @@ public class OrderScreen {
         this.hasChips = false;
         this.hasDrink = false;
     }
-
     public boolean hasChips() {
         return hasChips;
     }
@@ -34,11 +30,10 @@ public class OrderScreen {
         this.hasDrink = hasDrink;
     }
 
+    Scanner scanner = new Scanner(System.in);
 
     public void show() {
         displayOrderOptions();
-
-        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             int choice = getUserChoice(scanner);
@@ -80,7 +75,6 @@ public class OrderScreen {
     }
 
     public Sandwich createSandwich() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Build your Sandwich");
         barrier('=');
 
@@ -186,8 +180,6 @@ public class OrderScreen {
 
     //Method to get Sandwich size
     public int getBreadSize() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("Select Sandwich Size: ");
         System.out.println("1) 4\"");
         System.out.println("2) 8\"");
@@ -208,7 +200,6 @@ public class OrderScreen {
     }
 
     public String getBread() {
-        Scanner scanner = new Scanner(System.in);
 
         barrier('=');
         System.out.println("Select the type of bread:");
@@ -236,7 +227,6 @@ public class OrderScreen {
     }
 
     public List<String> getRegularToppings() {
-        Scanner scanner = new Scanner(System.in);
         RegularTopping regularTopping = new RegularTopping();
         List<String> selectedToppings = new ArrayList<>();
 
@@ -270,7 +260,6 @@ public class OrderScreen {
 
     //Method to add chips to the order
     public void addChipsToOrder() {
-        Scanner scanner = new Scanner(System.in);
 
         // Display the available chip flavors
         System.out.println("Available chips to choose: ");
@@ -280,7 +269,7 @@ public class OrderScreen {
 
         // Ask the user to select a chip flavor
         System.out.println("Enter the chip flavor: ");
-        String selectedFlavor = scanner.nextLine().trim().toLowerCase();
+        String selectedFlavor = scanner.next().trim().toLowerCase();
 
         if (Chip.getAvailableFlavors().contains(selectedFlavor)) {
             // Create an instance of the chip class with the selected flavor
@@ -295,7 +284,6 @@ public class OrderScreen {
 
     //Method to add drinks to the order
     public void addDrinksToOrder() {
-        Scanner scanner = new Scanner(System.in);
 
         // Display the available drink flavors
         System.out.println("Available drinks to choose: ");
@@ -305,7 +293,7 @@ public class OrderScreen {
 
         // Ask the user to select a drink flavor
         System.out.println("Enter the Drink flavor: ");
-        String selectedFlavor = scanner.nextLine().trim().toLowerCase();
+        String selectedFlavor = scanner.next().trim().toLowerCase();
 
         if (Drink.getAvailableFlavors().contains(selectedFlavor)) {
             // Ask the user to select a drink size
@@ -329,7 +317,6 @@ public class OrderScreen {
     }
 
     public String getMeatTopping() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose one of the available meat toppings:");
 
         // Display available meat toppings
@@ -349,7 +336,6 @@ public class OrderScreen {
     }
 
     public String getCheeseTopping() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose one of the available cheese toppings:");
 
         // Display available cheese toppings
@@ -369,7 +355,6 @@ public class OrderScreen {
     }
 
     public boolean isExtraMeat() {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Do you want extra meat? (yes/no): ");
         String choice = scanner.nextLine().toLowerCase();
@@ -379,7 +364,6 @@ public class OrderScreen {
     }
 
     public boolean isExtraCheese() {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Do you want extra cheese? (yes/no): ");
         String choice = scanner.nextLine().toLowerCase();
@@ -389,7 +373,6 @@ public class OrderScreen {
     }
 
     public List<String> getSauceChoices() {
-        Scanner scanner = new Scanner(System.in);
         List<String> selectedSauces = new ArrayList<>();
 
         System.out.println("Choose sauces for your sandwich (enter one at a time, type 'done' to finish):");
