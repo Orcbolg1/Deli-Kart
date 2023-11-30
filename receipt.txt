@@ -85,3 +85,42 @@ Extra Cheese: false
 Sauces: []
 Total Price: $10.75
 =======================================================
+Date and Time: 11-30-2023-11:39:01
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: chicken
+Cheese: swiss
+Extra Meat: true
+Extra Cheese: true
+Sauces: []
+Total Price: $12.05
+=======================================================
+Date and Time: 11-30-2023-11:41:11
+Order Details:
+Size: 4
+Bread: Wheat
+Toasted: false
+Regular Toppings: []
+Meat: ham
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: []
+Total Price: $11.55
+=======================================================
+Date and Time: 11-30-2023-11:49:10
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: [lettuce]
+Meat: ham
+Cheese: american
+Extra Meat: false
+Extra Cheese: false
+Sauces: [, ]
+Total Price: $7.25
+=======================================================
