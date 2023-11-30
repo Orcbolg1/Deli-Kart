@@ -6,16 +6,15 @@ import java.util.List;
 
 
 public class FileManager {
-    public static void writeOrderToReceipt(Sandwich sandwich) {
+    public static void writeOrderToReceipt(Sandwich sandwich, double price) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("receipt.txt"))) {
-            OrderScreen orderScreen = new OrderScreen();
+           /* not needed
+           OrderScreen orderScreen = new OrderScreen();
+
             double sandwichPrice = orderScreen.calculateTotalPrice(sandwich, orderScreen.hasChips(),
                     orderScreen.hasDrink(), sandwich.getMeat(), sandwich.getCheese(),
                     sandwich.isExtraMeat(), sandwich.isExtraCheese());
-            double drinkPrice = orderScreen.drinkPrice();
-            double chipPrice = orderScreen.chipPrice();
-            double totalPrice = 0;
-            totalPrice += sandwichPrice + drinkPrice + chipPrice;
+            */
             writer.write("Order Details:");
             writer.newLine();
             writer.write("Size: " + sandwich.getSize());
@@ -36,9 +35,7 @@ public class FileManager {
             writer.newLine();
             writer.write("Sauces: " + sandwich.getSauces());
             writer.newLine();
-            writer.write("Drink Price: $" + drinkPrice);
-            writer.newLine();
-            writer.write("Total Price: $" + totalPrice);
+            writer.write("Total Price: $" + price);
             //writer.write("Total Price: $" +
 
 
