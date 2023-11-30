@@ -1,12 +1,11 @@
 Order Details:
-Size: 4
-Bread: White
+Size: 8
+Bread: Wheat
 Toasted: false
-Regular Toppings: []
-Meat: ham
-Cheese: provolone
+Regular Toppings: [lettuce]
+Meat: chicken
+Cheese: cheddar
 Extra Meat: true
-Extra Cheese: true
+Extra Cheese: false
 Sauces: []
-Drink Price: $0.0
-Total Price: $8.05
+Total Price: $15.0
