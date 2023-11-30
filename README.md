@@ -26,19 +26,19 @@
     "As a User, I want to be able to calculate the price of the purchased product"
 
 ### Demo
+![ClassDiagram.png](pics%2FClassDiagram.png)
 
-![](C:\Pluralsight\Capstones\Deli-Kart\first.png)
+![first.png](pics%2Ffirst.png)
 
-![](C:\Pluralsight\Capstones\Deli-Kart\second.png)
+![second.png](pics%2Fsecond.png)
 
-![](C:\Pluralsight\Capstones\Deli-Kart\third.png)
+![third.png](pics%2Fthird.png)
 
-![](C:\Pluralsight\Capstones\Deli-Kart\fourth.png)
+![fourth.png](pics%2Ffourth.png)
 
-![](C:\Pluralsight\Capstones\Deli-Kart\fifth.png)
+![fifth.png](pics%2Ffifth.png)
 
-![](C:\Pluralsight\Capstones\Deli-Kart\sixth.png)
-
+![sixth.png](pics%2Fsixth.png)
 ### Future Work
 Features or extensions of this application to work on the future
 
