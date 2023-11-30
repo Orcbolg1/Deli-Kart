@@ -77,9 +77,9 @@ public class OrderScreen {
     }
 
     public Sandwich createSandwich() {
-        Sandwich sandwich;
-        while (true) {
-            
+        Sandwich sandwich = null;
+        boolean loop = true;
+        while (loop) {
             System.out.println("Build your Sandwich");
             barrier('=');
 
@@ -138,21 +138,19 @@ public class OrderScreen {
             printSelectedChips();
             printSelectedDrink();
 
-            System.out.println("Do you want to order another sandwich? (yes/no): ");
-            String orderAnotherChoice = scanner.next().toLowerCase();
-
-            if (orderAnotherChoice.equals("no")) {
-                break;
-
-            }
-
             double totalPrice = calculateTotalPrice(sandwich, hasChips, hasDrink, meat, cheese, extraMeat, extraCheese);
             System.out.println("Total Price: $" + totalPrice);
 
             FileManager.writeOrderToReceipt(sandwich, totalPrice);
 
+            System.out.println("Do you want to order another sandwich? (yes/no): ");
+            String orderAnotherChoice = scanner.next().toLowerCase();
             // Ask if the user wants to order another sandwich
-
+            if (orderAnotherChoice.equals("no")) {
+                loop = false;
+            } else {
+                loop = true;
+            }
 
         }
         return sandwich;
@@ -292,6 +290,7 @@ public class OrderScreen {
         // Ask the user to select a chip flavor
         System.out.println("Enter the chip flavor: ");
         String selectedFlavor = scanner.next().trim().toLowerCase();
+        scanner.nextLine();
 
         if (Chip.getAvailableFlavors().contains(selectedFlavor)) {
             // Create an instance of the chip class with the selected flavor
@@ -317,6 +316,7 @@ public class OrderScreen {
         // Ask the user to select a drink flavor
         System.out.println("Enter the Drink flavor: ");
         String selectedFlavor = scanner.nextLine().trim().toLowerCase();
+        scanner.nextLine();
 
         if (Drink.getAvailableFlavors().contains(selectedFlavor)) {
             // Ask the user to select a drink size
@@ -350,6 +350,7 @@ public class OrderScreen {
         System.out.print("Enter a meat topping:\n ");
         String meat = scanner.next();
         String meatTopping = meat.toLowerCase();
+
         // Validate if the entered meat topping is valid
         if (!PremiumTopping.getMeatToppings().stream().anyMatch(t -> t.equalsIgnoreCase(meat))) {
             System.out.println("Invalid meat topping. Please choose from the available options.");
@@ -368,8 +369,8 @@ public class OrderScreen {
 
         // Prompt user to enter a cheese topping
         System.out.print("Enter a cheese topping:\n");
-        String cheese = scanner.nextLine();
-
+        String cheese = scanner.next();
+        scanner.nextLine();
         // Validate if the entered cheese topping is valid
         if (!PremiumTopping.getCheeseToppings().stream().anyMatch(t -> t.equalsIgnoreCase(cheese))) {
             System.out.println("Invalid cheese topping. Please choose from the available options.");

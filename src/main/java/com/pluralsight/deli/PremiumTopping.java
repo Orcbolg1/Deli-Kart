@@ -9,9 +9,9 @@ public class PremiumTopping extends Topping {
     //List of toppings customer can add
     private boolean isExtraMeat;
     private boolean isExtraCheese;
-    private static final List<String> meatToppings = new ArrayList<>(Arrays.asList("Steak", "Ham", "Salami", "Roast Beef",
-            "Chicken", "Bacon"));
-    private static final List<String> cheeseToppings = new ArrayList<>(Arrays.asList("American", "Provolone", "Cheddar", "Swiss"));
+    private static final List<String> meatToppings = new ArrayList<>(Arrays.asList("steak", "ham", "salami", "roast beef",
+            "chicken", "bacon"));
+    private static final List<String> cheeseToppings = new ArrayList<>(Arrays.asList("american", "provolone", "cheddar", "swiss"));
 
     // Constructor for a premium topping
     public PremiumTopping(String name) {

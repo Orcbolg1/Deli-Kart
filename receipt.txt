@@ -124,3 +124,81 @@ Extra Cheese: false
 Sauces: [, ]
 Total Price: $7.25
 =======================================================
+Date and Time: 11-30-2023-12:57:33
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: [lettuce]
+Meat: steak
+Cheese: American
+Extra Meat: true
+Extra Cheese: false
+Sauces: [mayonnaise]
+Total Price: $7.75
+=======================================================
+Date and Time: 11-30-2023-13:03:49
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: ham
+Cheese: american
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mayonnaise]
+Total Price: $8.05
+=======================================================
+Date and Time: 11-30-2023-13:07:44
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: bacon
+Cheese: provolone
+Extra Meat: false
+Extra Cheese: false
+Sauces: [thousand islands]
+Total Price: $7.25
+=======================================================
+Date and Time: 11-30-2023-13:09:55
+Order Details:
+Size: 12
+Bread: Wrap
+Toasted: false
+Regular Toppings: [pickles, peppers, tomatoes]
+Meat: chicken
+Cheese: cheddar
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mustard]
+Total Price: $17.65
+=======================================================
+Date and Time: 11-30-2023-13:10:39
+Order Details:
+Size: 12
+Bread: Wrap
+Toasted: false
+Regular Toppings: [jalapenos]
+Meat: ham
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [ranch]
+Total Price: $17.65
+=======================================================
+Date and Time: 11-30-2023-13:16:23
+Order Details:
+Size: 12
+Bread: Wrap
+Toasted: false
+Regular Toppings: [tomatoes]
+Meat: steak
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [au jus]
+Total Price: $17.65
+=======================================================
