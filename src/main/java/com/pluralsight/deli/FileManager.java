@@ -38,8 +38,11 @@ public class FileManager {
             writer.newLine();
             writer.write("Total Price: $" + price);
             writer.newLine();
+            writer.write("=======================================================");
+            writer.newLine();
 
             System.out.println("Thank You Come Again!");
+            writer.write(OrderScreen.barrier('='));
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
