@@ -352,7 +352,7 @@ public class OrderScreen {
         String meatTopping = meat.toLowerCase();
 
         // Validate if the entered meat topping is valid
-        if (!PremiumTopping.getMeatToppings().stream().anyMatch(t -> t.equalsIgnoreCase(meat))) {
+        if (!PremiumTopping.getMeatToppings().stream().anyMatch(t -> t.equalsIgnoreCase(meatTopping))) {
             System.out.println("Invalid meat topping. Please choose from the available options.");
             return getMeatTopping(); // Recursively call the method to retry
         }
