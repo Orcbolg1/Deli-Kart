@@ -400,7 +400,7 @@ public class OrderScreen {
         // Continue adding sauces until the user enters 'done'
         while (true) {
             System.out.print("Enter a sauce (or 'done' to finish): \n");
-            String sauce = scanner.nextLine();
+            String sauce = scanner.nextLine().toLowerCase();
 
             if (sauce.equalsIgnoreCase("done")) {
                 break;

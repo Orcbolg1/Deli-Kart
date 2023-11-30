@@ -1,20 +1,21 @@
 package com.pluralsight.deli;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class FileManager {
     public static void writeOrderToReceipt(Sandwich sandwich, double price) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("receipt.txt"))) {
-           /* not needed
-           OrderScreen orderScreen = new OrderScreen();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("receipt.txt", true))) {
+            LocalDateTime dateTime = LocalDateTime.now();
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HH:mm:ss");
+            String formattedDateTime = dateTime.format(dateTimeFormatter);
 
-            double sandwichPrice = orderScreen.calculateTotalPrice(sandwich, orderScreen.hasChips(),
-                    orderScreen.hasDrink(), sandwich.getMeat(), sandwich.getCheese(),
-                    sandwich.isExtraMeat(), sandwich.isExtraCheese());
-            */
+            writer.write("Date and Time: " + formattedDateTime);
+            writer.newLine();
             writer.write("Order Details:");
             writer.newLine();
             writer.write("Size: " + sandwich.getSize());
@@ -36,8 +37,7 @@ public class FileManager {
             writer.write("Sauces: " + sandwich.getSauces());
             writer.newLine();
             writer.write("Total Price: $" + price);
-            //writer.write("Total Price: $" +
-
+            writer.newLine();
 
             System.out.println("Thank You Come Again!");
         } catch (IOException e) {

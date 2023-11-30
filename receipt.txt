@@ -1,11 +1,23 @@
+Date and Time: 11-30-2023-08:47:37
 Order Details:
-Size: 8
-Bread: Wheat
+Size: 4
+Bread: White
 Toasted: false
-Regular Toppings: [lettuce]
-Meat: chicken
+Regular Toppings: []
+Meat: Chicken
+Cheese: Provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [Mayonnaise]
+Total Price: $12.05Date and Time: 11-30-2023-08:52:00
+Order Details:
+Size: 12
+Bread: Wrap
+Toasted: false
+Regular Toppings: [mushrooms]
+Meat: Salami
 Cheese: cheddar
 Extra Meat: true
 Extra Cheese: false
-Sauces: []
-Total Price: $15.0
+Sauces: [Thousand Islands]
+Total Price: $15.25
