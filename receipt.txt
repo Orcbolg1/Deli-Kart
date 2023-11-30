@@ -72,4 +72,16 @@ Regular Toppings: []
 Meat: Steak
 Cheese: american
 Extra Meat: false
+Extra Cheese: falseDate and Time: 11-30-2023-11:30:30
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: chicken
+Cheese: provolone
+Extra Meat: false
 Extra Cheese: false
+Sauces: []
+Total Price: $10.75
+=======================================================

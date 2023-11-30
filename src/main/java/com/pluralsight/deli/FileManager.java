@@ -46,7 +46,6 @@ public class FileManager {
 
 
 
-=======
             writer.write(OrderScreen.barrier('='));
 
         } catch (IOException e) {
