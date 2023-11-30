@@ -1,8 +1,5 @@
 package com.pluralsight.deli;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -488,11 +485,12 @@ public class OrderScreen {
         return toppingPrice + extraPrice;
     }
 
-    public static void barrier(char character) {
-        for (int i = 0; i < 30; i++) {
+    public static char[] barrier(char character) {
+        for (int i = 0; i < 50; i++) {
             System.out.print(character);
         }
         System.out.println();//Move to the next line after printing out the characters
+        return new char[0];
     }
 
 }

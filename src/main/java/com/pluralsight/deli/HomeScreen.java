@@ -24,11 +24,11 @@ public class HomeScreen {
                     orderScreen.show();
                     break;
                 case 2:
-                    System.out.println("Exiting the Program. Have a good day! Goodbye!");
+                    System.out.println("Have a good day! Goodbye!");
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Invalid choice. Please enter a valid option.");
+                    System.out.println("Error. Please enter a valid option.");
             }
         }
     }
@@ -58,7 +58,7 @@ public class HomeScreen {
     }
 
     public static void barrier(char character){
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
             System.out.print(character);
         }
         System.out.println();//Move to the next line after printing out the characters
