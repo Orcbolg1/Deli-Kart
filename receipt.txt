@@ -37,3 +37,42 @@ Extra Cheese: true
 Sauces: [au jus]
 Total Price: $20.65
 =======================================================
+Date and Time: 11-30-2023-10:03:32
+Order Details:
+Size: 12
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: ham
+Cheese: American
+Extra Meat: true
+Extra Cheese: false
+Sauces: [au jus]
+Total Price: $15.25
+=======================================================
+Date and Time: 11-30-2023-10:04:54
+Order Details:
+Size: 12
+Bread: White
+Toasted: false
+Regular Toppings: [onions, cucumbers]
+Meat: steak
+Cheese: swiss
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mayonnaise]
+Total Price: $20.65
+=======================================================
+Date and Time: 11-30-2023-10:10:10
+Order Details:
+Size: 4
+Bread: White
+Toasted: false
+Regular Toppings: []
+Meat: Steak
+Cheese: american
+Extra Meat: false
+Extra Cheese: false
+Sauces: []
+Total Price: $7.25
+=======================================================

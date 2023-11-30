@@ -38,6 +38,7 @@ public class FileManager {
             writer.newLine();
             writer.write("Total Price: $" + price);
             writer.newLine();
+            // added the barrier to the recipt
             writer.write("=======================================================");
             writer.newLine();
 
