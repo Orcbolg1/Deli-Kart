@@ -73,6 +73,3 @@ Meat: Steak
 Cheese: american
 Extra Meat: false
 Extra Cheese: false
-Sauces: []
-Total Price: $7.25
-=======================================================
