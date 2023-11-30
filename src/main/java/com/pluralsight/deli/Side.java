@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Side {
     private String auJus;
-    private static final List<String> condiments = new ArrayList<>(Arrays.asList("Mayonnaise", "Mustard", "Ketchup",
-            "Ranch", "Thousand Islands", "Vinaigrette"));
+    private static final List<String> condiments = new ArrayList<>(Arrays.asList("mayonnaise", "mustard", "ketchup",
+            "ranch", "thousand islands", "vinaigrette"));
 
     public Side(String auJus) {
         this.auJus = auJus;
