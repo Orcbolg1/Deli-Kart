@@ -1,0 +1,16 @@
+Date and Time: 2023-11-30-21_37_25
+Order Details:
+Size: 12 inches
+Bread: White
+Toasted: true
+Regular Toppings: [lettuce]
+Meat: steak
+Cheese: american
+Extra Meat: true
+Extra Cheese: false
+Sauces: [mayonnaise]
+Chip: salt chips
+Drink: size = L, pepsi
+=======================================================
+Total Price: $19.75
+=======================================================
