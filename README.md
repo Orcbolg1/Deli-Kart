@@ -8,7 +8,7 @@
     whether to include chips and drink to the order, and calculate its total price.
 
 ### Class Diagram
-![]("C:\Pluralsight\Capstones\Deli-Kart\ClassDiagram.png")
+![ClassDiagram.png](pics%2FClassDiagram.png)
 
 ### User Stories
     "As a User, I want to add a home screen for users."
@@ -25,8 +25,11 @@
 
     "As a User, I want to be able to calculate the price of the purchased product"
 
+### Setup
+    Have Intellij installed along with JDK 17. Clone Deli-Kart into a directory of your
+    choosing. Launch program from SandwichShop.java.
+
 ### Demo
-![ClassDiagram.png](pics%2FClassDiagram.png)
 
 ![first.png](pics%2Ffirst.png)
 
@@ -39,8 +42,11 @@
 ![fifth.png](pics%2Ffifth.png)
 
 ![sixth.png](pics%2Fsixth.png)
-### Future Work
-Features or extensions of this application to work on the future
 
+### Future Work
+
+* Would like to add a function to add multiple toppings at once instead of manually typing each one each time.
+* More classes, order screen was huge class that ran everything
+* GUI
 
 ### Thanks
