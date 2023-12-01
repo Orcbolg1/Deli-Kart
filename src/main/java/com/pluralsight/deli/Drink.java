@@ -11,7 +11,7 @@ public class Drink implements GetPrice {
     private String flavor;
     //Arrays.asList takes in an array for the list since it's final anyway. more beginner-developer-friendly to understand
     private static final List<String> availableFlavors = new ArrayList<>(Arrays.asList("cola", "fanta", "sprite",
-            "root beer", "mountain dew")); // ArrayList to store available flavors
+            "pepsi", "7up")); // ArrayList to store available flavors
     private final double basePrice = 2.0; // Base price for a drink
 
     // Constructor for a drink
