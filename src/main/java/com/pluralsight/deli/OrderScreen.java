@@ -45,10 +45,7 @@ public class OrderScreen {
                     createSandwichOrder();
                     break;
                 case 2:
-                    List<String> previousOrders = FileManager.loadReceipt();
-                    for (String order : previousOrders) {
-                        System.out.println(order);
-                    }
+                    FileManager.loadReceipt();
 
                     // Prompt user to return to order screen or keep viewing
                     System.out.println("Do you want to go back to the order screen? (yes/no): ");
@@ -131,7 +128,7 @@ public class OrderScreen {
         }
 
         // Ask if the user wants to add drinks
-        System.out.println("Do you want to add drinks to your order? (yes/no): ");
+        System.out.println("Do you want to add a drink to your order? (yes/no): ");
         String addDrinksChoice = scanner.next().toLowerCase();
         if (addDrinksChoice.equals("yes")) {
             addDrinksToOrder();
@@ -161,7 +158,7 @@ public class OrderScreen {
         double totalPrice = 0;
         for (int i = 0; i < sandwiches.size(); i++){
             Sandwich currentSandwich = sandwiches.get(i);
-            totalPrice += calculateTotalSandwichPrice(currentSandwich,sandwich.getMeat(), sandwich.getCheese(), sandwich.isExtraMeat(), sandwich.isExtraCheese());
+            totalPrice += calculateTotalSandwichPrice(currentSandwich,currentSandwich.getMeat(), currentSandwich.getCheese(), currentSandwich.isExtraMeat(), currentSandwich.isExtraCheese());
         }
         totalPrice += drinkPrice() + chipPrice();
 //        double totalPrice = calculateTotalPrice(sandwich, hasChips, hasDrink, sandwich.getMeat(), sandwich.getCheese(), sandwich.isExtraMeat(), sandwich.isExtraCheese());
@@ -179,10 +176,7 @@ public class OrderScreen {
         // Calculate the total price for premium toppings
         double toppingPrice = getToppingPrice(sandwich, meat, cheese, extraMeat, extraCheese);
 
-        //The ? symbol is part of the conditional (ternary) operator in Java. The expression condition ? valueIfTrue : valueIfFalse is a shorthand way of writing an if-else statement.
-        // so if hasDrink ? and hasChips ? means that if its true it will get the price if else it returns 0.
-
-        // Calculate the total price
+        // Calculate the total price by also adding bread size price
         totalPrice += toppingPrice + sandwich.getPrice();
 
         return totalPrice;
@@ -395,7 +389,6 @@ public class OrderScreen {
     }
 
     public boolean isExtraMeat() {
-
 
         System.out.print("Do you want extra meat? (yes/no): ");
         String choice = scanner.nextLine().toLowerCase();

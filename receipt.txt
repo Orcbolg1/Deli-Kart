@@ -1,111 +1,58 @@
-Date and Time: 11-30-2023-09:24:43
+Date and Time: 12-01-2023-01:35:36
 Order Details:
-Size: 4
-Bread: White
-Toasted: false
-Regular Toppings: [lettuce]
-Meat: ham
-Cheese: provolone
-Extra Meat: false
-Extra Cheese: false
-Sauces: [vinaigrette]
-Total Price: $7.25
-=======================================================
-Date and Time: 11-30-2023-09:29:44
-Order Details:
-Size: 12
+Size: 4 inches
 Bread: Wheat
-Toasted: false
-Regular Toppings: [cucumber]
-Meat: bacon
-Cheese: swiss
-Extra Meat: true
-Extra Cheese: false
-Sauces: [ketchup]
-Total Price: $15.25
-=======================================================
-Date and Time: 11-30-2023-09:32:53
-Order Details:
-Size: 12
-Bread: White
-Toasted: false
+Toasted: true
 Regular Toppings: []
-Meat: Steak
-Cheese: provolone
-Extra Meat: true
+Meat: steak
+Cheese: swiss
+Extra Meat: false
 Extra Cheese: true
-Sauces: [au jus]
-Total Price: $20.65
+Sauces: []
+Chip: bbq chips
+Drink: size = S, cola
+Total Price: $11.05
 =======================================================
-Date and Time: 11-30-2023-19:04:24
+Date and Time: 2023-12-01-03_02_15
+Order Details:
+Date and Time: 2023-12-01-03_02_15
 Order Details:
 Size: 4 inches
 Bread: White
 Toasted: true
-Regular Toppings: [lettuce]
+Regular Toppings: []
 Meat: ham
-Cheese: american
+Cheese: swiss
 Extra Meat: true
-Extra Cheese: true
-Sauces: [mustard]
+Extra Cheese: false
+Sauces: []
 Size: 12 inches
 Bread: Rye
 Toasted: true
 Regular Toppings: []
 Meat: ham
-Cheese: provolone
+Cheese: swiss
 Extra Meat: true
 Extra Cheese: true
-Sauces: [mayonnaise]
-Total Price: $27.7
+Sauces: []
+Chip: bbq chips
+Drink: size = M, pepsi
+Total Price: $27.9
 =======================================================
-Date and Time: 11-30-2023-19:25:38
+Date and Time: 2023-12-01-03_05_15
 Order Details:
-Size: 4 inches
-Bread: White
-Toasted: true
-Regular Toppings: []
-Meat: ham
-Cheese: cheddar
-Extra Meat: true
-Extra Cheese: true
-Sauces: []
-=======================================================
-Size: 8 inches
-Bread: Wheat
-Toasted: true
-Regular Toppings: [lettuce]
-Meat: steak
-Cheese: provolone
-Extra Meat: true
-Extra Cheese: true
-Sauces: []
-=======================================================
-Chip: jalapeno chips
-Drink: size = S, fanta
-Total Price: $23.65
-=======================================================
-Date and Time: 11-30-2023-19:27:06
+Date and Time: 2023-12-01-03_05_15
 Order Details:
 Size: 8 inches
-Bread: White
-Toasted: true
-Regular Toppings: []
-Meat: chicken
-Cheese: provolone
-Extra Meat: true
-Extra Cheese: true
-Sauces: []
-Size: 4 inches
 Bread: Wheat
 Toasted: true
 Regular Toppings: []
 Meat: ham
-Cheese: cheddar
-Extra Meat: false
-Extra Cheese: true
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: false
 Sauces: []
-Chip: null
-Drink: size = L, 7up
-Total Price: $21.65
+Chip: salt chips
+Drink: size = S, pepsi
+Total Price: $15.0
 =======================================================

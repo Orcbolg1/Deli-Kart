@@ -1,0 +1,16 @@
+Date and Time: 2023-12-01-03_12_58
+Order Details:
+Size: 12 inches
+Bread: White
+Toasted: true
+Regular Toppings: [lettuce]
+Meat: chicken
+Cheese: cheddar
+Extra Meat: true
+Extra Cheese: true
+Sauces: []
+Chip: bbq chips
+Drink: size = S, pepsi
+=======================================================
+Total Price: $19.65
+=======================================================

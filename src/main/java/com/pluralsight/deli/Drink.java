@@ -20,6 +20,10 @@ public class Drink implements GetPrice {
         this.flavor = flavor;
     }
 
+    public double getBasePrice() {
+        return basePrice;
+    }
+
     // Concrete implementation of the abstract method from the interface
     @Override
     public double getPrice() {
@@ -29,11 +33,11 @@ public class Drink implements GetPrice {
 
         switch (size) {
             case 'S':
-                return basePrice; // Small size
+                return getBasePrice(); // Small size
             case 'M':
-                return basePrice + .5; // Medium size
+                return getBasePrice() + .5; // Medium size
             case 'L':
-                return basePrice + 1.0; // Large size
+                return getBasePrice() + 1.0; // Large size
             default:
                 throw new IllegalArgumentException("Invalid size: " + size);
         }

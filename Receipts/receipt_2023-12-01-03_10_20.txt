@@ -1,0 +1,17 @@
+Date and Time: 2023-12-01-03_10_20
+Order Details:
+Date and Time: 2023-12-01-03_10_20
+Order Details:
+Size: 12 inches
+Bread: White
+Toasted: true
+Regular Toppings: []
+Meat: ham
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [ranch]
+Chip: bbq chips
+Drink: size = S, sprite
+Total Price: $19.65
+=======================================================
