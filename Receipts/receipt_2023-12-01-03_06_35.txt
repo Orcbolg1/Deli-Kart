@@ -1,0 +1,17 @@
+Date and Time: 2023-12-01-03_06_35
+Order Details:
+Date and Time: 2023-12-01-03_06_35
+Order Details:
+Size: 8 inches
+Bread: Rye
+Toasted: true
+Regular Toppings: []
+Meat: ham
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: false
+Sauces: []
+Chip: bbq chips
+Drink: size = S, sprite
+Total Price: $15.0
+=======================================================

@@ -1,0 +1,28 @@
+Date and Time: 2023-12-01-00_48_37
+Order Details:
+Size: 4 inches
+Bread: Rye
+Toasted: true
+Regular Toppings: [lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole]
+Meat: bacon
+Cheese: swiss
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mayonnaise]
+Chip: jalapeno chips
+Drink: size = M, cola
+=======================================================
+Size: 12 inches
+Bread: Wheat
+Toasted: true
+Regular Toppings: [tomatoes]
+Meat: salami
+Cheese: provolone
+Extra Meat: false
+Extra Cheese: false
+Sauces: [ranch]
+Chip: jalapeno chips
+Drink: size = M, cola
+=======================================================
+Total Price: $25.0
+=======================================================

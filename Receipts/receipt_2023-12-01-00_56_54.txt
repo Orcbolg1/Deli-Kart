@@ -1,0 +1,28 @@
+Date and Time: 2023-12-01-00_56_54
+Order Details:
+Size: 4 inches
+Bread: White
+Toasted: true
+Regular Toppings: [lettuce]
+Meat: salami
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: []
+Chip: bbq chips
+Drink: size = S, pepsi
+=======================================================
+Size: 12 inches
+Bread: White
+Toasted: true
+Regular Toppings: []
+Meat: ham
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [ranch]
+Chip: bbq chips
+Drink: size = S, pepsi
+=======================================================
+Total Price: $27.7
+=======================================================
