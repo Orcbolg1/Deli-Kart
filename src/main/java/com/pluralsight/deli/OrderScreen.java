@@ -106,21 +106,6 @@ public class OrderScreen {
             sandwiches.add(sandwich);
 
             System.out.println();
-            // Ask if the user wants to add chips
-            System.out.println("Do you want to add chips to your order? (yes/no): ");
-            String addChipsChoice = scanner.next().toLowerCase();
-            if (addChipsChoice.equals("yes")) {
-                addChipsToOrder();
-            }
-
-            // Ask if the user wants to add drinks
-            System.out.println("Do you want to add drinks to your order? (yes/no): ");
-            String addDrinksChoice = scanner.next().toLowerCase();
-            if (addDrinksChoice.equals("yes")) {
-                addDrinksToOrder();
-            }
-
-            System.out.println();
             System.out.println("Do you want to order another sandwich? (yes/no): ");
             String orderAnotherChoice = scanner.next().toLowerCase();
 
@@ -137,8 +122,7 @@ public class OrderScreen {
         String addChipsChoice = scanner.next().toLowerCase();
         if (addChipsChoice.equals("yes")) {
             addChipsToOrder();
-            // Update the total price after adding chips
-//            totalPrice += Chip.getPrice();
+
         }
 
         // Ask if the user wants to add drinks
@@ -146,8 +130,7 @@ public class OrderScreen {
         String addDrinksChoice = scanner.next().toLowerCase();
         if (addDrinksChoice.equals("yes")) {
             addDrinksToOrder();
-            // Update the total price after adding drinks
-//            totalPrice += Drink.getPrice();
+
         }
 
         // Print out the order details

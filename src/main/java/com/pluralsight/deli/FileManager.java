@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class FileManager {
-    private static final String RECEIPT_DIRECTORY = "Receipts";  // Update directory name
+    private static final String RECEIPT_DIRECTORY = "Receipts";
     private static final String RECEIPT_FILE_EXTENSION = ".txt";
 
     public static void writeOrderToReceipt(List<Sandwich> sandwiches, Chip chip, Drink drink, double price) {
