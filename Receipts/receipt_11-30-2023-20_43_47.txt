@@ -1,0 +1,24 @@
+Date and Time: 11-30-2023-20_43_47
+Order Details:
+Size: 12 inches
+Bread: Wheat
+Toasted: true
+Regular Toppings: [lettuce, peppers]
+Meat: salami
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mayonnaise]
+Size: 12 inches
+Bread: Wrap
+Toasted: true
+Regular Toppings: [lettuce]
+Meat: bacon
+Cheese: swiss
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mayonnaise]
+Chip: salt chips
+Drink: size = L, 7up
+=======================================================Total Price: $36.8
+=======================================================

@@ -1,0 +1,24 @@
+Date and Time: 11-30-2023-20_37_49
+Order Details:
+Size: 4 inches
+Bread: Rye
+Toasted: true
+Regular Toppings: [lettuce]
+Meat: steak
+Cheese: american
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mayonnaise]
+Size: 12 inches
+Bread: Wheat
+Toasted: true
+Regular Toppings: [peppers, onions, jalapenos]
+Meat: steak
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mayonnaise]
+Chip: salt chips
+Drink: size = L, cola
+Total Price: $28.7
+=======================================================

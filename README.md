@@ -88,5 +88,4 @@ Features or extensions of this application to work on the future
 1. Raymond for picking the best teammates, we had a lot of hogh and lows and im glad we have teammates that help each other and built this project together.
 2. Hamza for providing the link for the banners. It spiced up our readMe. 
 3. Daniel Kim
-4. John Graham
-4. The users on stackoverflow for having the same issue and answering those issues. (interface, filewriter, etc.)
+
