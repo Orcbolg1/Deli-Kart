@@ -167,7 +167,7 @@ public class OrderScreen {
 //        double totalPrice = calculateTotalPrice(sandwich, hasChips, hasDrink, sandwich.getMeat(), sandwich.getCheese(), sandwich.isExtraMeat(), sandwich.isExtraCheese());
         System.out.println("Total Price: $" + totalPrice);
 
-        FileManager.writeOrderToReceipt(sandwiches, totalPrice);
+        FileManager.writeOrderToReceipt(sandwiches, selectedChip, selectedDrink, totalPrice);
 //        return sandwiches;
     }
 
