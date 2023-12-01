@@ -20,7 +20,7 @@ public class Sandwich implements GetPrice{
         this.size = size;
         this.bread = bread;
         this.toppings = toppings;
-        this.toasted = toasted;
+        this.toasted = false;
         this.extraMeat = extraMeat;
         this.extraCheese = extraCheese;
     }
@@ -53,7 +53,7 @@ public class Sandwich implements GetPrice{
     }
 
     public boolean isToasted() {
-        return toasted;
+        return toasted = true;
     }
 
     public void setToasted(boolean toasted) {

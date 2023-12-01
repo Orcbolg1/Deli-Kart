@@ -42,7 +42,7 @@ public class OrderScreen {
 
             switch (choice) {
                 case 1:
-                    createSandwich();
+                    createSandwichOrder();
                     break;
                 case 2:
                     List<String> previousOrders = FileManager.loadReceipt();
@@ -76,8 +76,9 @@ public class OrderScreen {
         System.out.print("Enter your choice:\n ");
     }
 
-    public Sandwich createSandwich() {
+    public void createSandwichOrder() {
         Sandwich sandwich = null;
+        List<Sandwich> sandwiches = new ArrayList<>();
         boolean loop = true;
         while (loop) {
             System.out.println("Build your Sandwich");
@@ -103,60 +104,75 @@ public class OrderScreen {
             // Ask if the user wants the sandwich toasted
             System.out.println("Do you want your bread toasted? (yes/no): ");
             boolean toasted = scanner.next().equalsIgnoreCase("yes");
-
-            // Ask if the user wants to add chips
-            System.out.println("Do you want to add chips to your order? (yes/no): ");
-            String addChipsChoice = scanner.next().toLowerCase();
-            if (addChipsChoice.equals("yes")) {
-                addChipsToOrder();
-                // Update the total price after adding chips
-//            totalPrice += Chip.getPrice();
+            if(toasted){
+                sandwich.isToasted();
             }
+            sandwiches.add(sandwich);
 
-            // Ask if the user wants to add drinks
-            System.out.println("Do you want to add drinks to your order? (yes/no): ");
-            String addDrinksChoice = scanner.next().toLowerCase();
-            if (addDrinksChoice.equals("yes")) {
-                addDrinksToOrder();
-                // Update the total price after adding drinks
-//            totalPrice += Drink.getPrice();
-            }
-
-            // Print out the order details
-            System.out.println("Order Details:");
-            System.out.println("Size: " + size + " inches");
-            System.out.println("Bread: " + bread);
-            System.out.println("Toasted: " + toasted);
-            System.out.println("Regular Toppings: " + regularTopping);
-            System.out.println("Meat: " + meat);
-            System.out.println("Cheese: " + cheese);
-            System.out.println("Extra Meat: " + extraMeat);
-            System.out.println("Extra Cheese: " + extraCheese);
-            System.out.println("Sauces: " + sides);
-
-            // Print the selected chips and drinks
-            printSelectedChips();
-            printSelectedDrink();
-
-            double totalPrice = calculateTotalPrice(sandwich, hasChips, hasDrink, meat, cheese, extraMeat, extraCheese);
-            System.out.println("Total Price: $" + totalPrice);
-
-            FileManager.writeOrderToReceipt(sandwich, totalPrice);
-
+            System.out.println();
             System.out.println("Do you want to order another sandwich? (yes/no): ");
             String orderAnotherChoice = scanner.next().toLowerCase();
+
             // Ask if the user wants to order another sandwich
             if (orderAnotherChoice.equals("no")) {
                 loop = false;
-            } else {
-                loop = true;
             }
-
         }
-        return sandwich;
+
+
+        System.out.println();
+        // Ask if the user wants to add chips
+        System.out.println("Do you want to add chips to your order? (yes/no): ");
+        String addChipsChoice = scanner.next().toLowerCase();
+        if (addChipsChoice.equals("yes")) {
+            addChipsToOrder();
+            // Update the total price after adding chips
+//            totalPrice += Chip.getPrice();
+        }
+
+        // Ask if the user wants to add drinks
+        System.out.println("Do you want to add drinks to your order? (yes/no): ");
+        String addDrinksChoice = scanner.next().toLowerCase();
+        if (addDrinksChoice.equals("yes")) {
+            addDrinksToOrder();
+            // Update the total price after adding drinks
+//            totalPrice += Drink.getPrice();
+        }
+
+        for (int i = 0; i < sandwiches.size(); i++){
+            System.out.println("Order Details:");
+            System.out.println("Size: " + sandwiches.get(i).getSize() + " inches");
+            System.out.println("Bread: " + sandwiches.get(i).getBread());
+            System.out.println("Toasted: " + sandwiches.get(i).isToasted());
+            System.out.println("Regular Toppings: " + sandwiches.get(i).getToppings());
+            System.out.println("Meat: " + sandwiches.get(i).getMeat());
+            System.out.println("Cheese: " + sandwiches.get(i).getCheese());
+            System.out.println("Extra Meat: " + sandwiches.get(i).isExtraMeat());
+            System.out.println("Extra Cheese: " + sandwiches.get(i).isExtraCheese());
+            System.out.println("Sauces: " + sandwiches.get(i).getSauces());
+        }
+        // Print out the order details
+
+
+        // Print the selected chips and drinks
+        printSelectedChips();
+        printSelectedDrink();
+
+        double totalPrice = 0;
+        for (int i = 0; i < sandwiches.size(); i++){
+            Sandwich currentSandwich = sandwiches.get(i);
+            totalPrice += calculateTotalSandwichPrice(currentSandwich,sandwich.getMeat(), sandwich.getCheese(), sandwich.isExtraMeat(), sandwich.isExtraCheese());
+        }
+        totalPrice += drinkPrice() + chipPrice();
+//        double totalPrice = calculateTotalPrice(sandwich, hasChips, hasDrink, sandwich.getMeat(), sandwich.getCheese(), sandwich.isExtraMeat(), sandwich.isExtraCheese());
+        System.out.println("Total Price: $" + totalPrice);
+
+        FileManager.writeOrderToReceipt(sandwiches, totalPrice);
+//        return sandwiches;
     }
 
-    public double calculateTotalPrice(Sandwich sandwich, boolean hasChips, boolean hasDrink, String meat, String cheese, boolean extraMeat, boolean extraCheese) {
+
+    public double calculateTotalSandwichPrice(Sandwich sandwich, String meat, String cheese, boolean extraMeat, boolean extraCheese) {
         double totalPrice = 0.0;
 
 //
@@ -165,21 +181,19 @@ public class OrderScreen {
 
         //The ? symbol is part of the conditional (ternary) operator in Java. The expression condition ? valueIfTrue : valueIfFalse is a shorthand way of writing an if-else statement.
         // so if hasDrink ? and hasChips ? means that if its true it will get the price if else it returns 0.
-        double drinkPrice = drinkPrice();
-        double chipPrice = chipPrice();
 
         // Calculate the total price
-        totalPrice += toppingPrice + drinkPrice + chipPrice + sandwich.getPrice();
+        totalPrice += toppingPrice + sandwich.getPrice();
 
         return totalPrice;
     }
 
-    public double drinkPrice(){
+    public double drinkPrice() {
         double drinkPrice = 0.0;
         return drinkPrice = drinkPrice + (hasDrink ? selectedDrink.getPrice() : 0.0);
     }
 
-    public double chipPrice(){
+    public double chipPrice() {
         double chipPrice = 0;
         return chipPrice += hasChips ? selectedChip.getPrice() : 0.0;
     }
@@ -195,7 +209,7 @@ public class OrderScreen {
 
     //Method to get Sandwich size
     public int getBreadSize() {
-        
+
 
         System.out.println("Select Sandwich Size: ");
         System.out.println("1) 4\"");
@@ -217,7 +231,7 @@ public class OrderScreen {
     }
 
     public String getBread() {
-        
+
 
         barrier('=');
         System.out.println("Select the type of bread:");
@@ -245,7 +259,7 @@ public class OrderScreen {
     }
 
     public List<String> getRegularToppings() {
-        
+
         RegularTopping regularTopping = new RegularTopping();
         List<String> selectedToppings = new ArrayList<>();
 
@@ -279,7 +293,7 @@ public class OrderScreen {
 
     //Method to add chips to the order
     public void addChipsToOrder() {
-        
+
 
         // Display the available chip flavors
         System.out.println("Available chips to choose: ");
@@ -305,7 +319,7 @@ public class OrderScreen {
 
     //Method to add drinks to the order
     public void addDrinksToOrder() {
-        
+
 
         // Display the available drink flavors
         System.out.println("Available drinks to choose: ");
@@ -315,7 +329,7 @@ public class OrderScreen {
 
         // Ask the user to select a drink flavor
         System.out.println("Enter the Drink flavor: ");
-        String selectedFlavor = scanner.nextLine().trim().toLowerCase();
+        String selectedFlavor = scanner.next().trim().toLowerCase();
         scanner.nextLine();
 
         if (Drink.getAvailableFlavors().contains(selectedFlavor)) {
@@ -340,7 +354,7 @@ public class OrderScreen {
     }
 
     public String getMeatTopping() {
-        
+
         System.out.println("Choose one of the available meat toppings:");
 
         // Display available meat toppings
@@ -361,7 +375,7 @@ public class OrderScreen {
     }
 
     public String getCheeseTopping() {
-        
+
         System.out.println("Choose one of the available cheese toppings:");
 
         // Display available cheese toppings
@@ -381,7 +395,7 @@ public class OrderScreen {
     }
 
     public boolean isExtraMeat() {
-        
+
 
         System.out.print("Do you want extra meat? (yes/no): ");
         String choice = scanner.nextLine().toLowerCase();
@@ -391,7 +405,7 @@ public class OrderScreen {
     }
 
     public boolean isExtraCheese() {
-        
+
 
         System.out.print("Do you want extra cheese? (yes/no): ");
         String choice = scanner.nextLine().toLowerCase();
@@ -401,7 +415,7 @@ public class OrderScreen {
     }
 
     public List<String> getSauceChoices() {
-        
+
         List<String> selectedSauces = new ArrayList<>();
 
         System.out.println("Choose sauces for your sandwich (enter one at a time, type 'done' to finish):");

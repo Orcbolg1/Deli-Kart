@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class FileManager {
-    public static void writeOrderToReceipt(Sandwich sandwich, double price) {
+    public static void writeOrderToReceipt(List<Sandwich> sandwich, double price) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("receipt.txt", true))) {
             LocalDateTime dateTime = LocalDateTime.now();
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HH:mm:ss");
@@ -18,7 +18,27 @@ public class FileManager {
             writer.newLine();
             writer.write("Order Details:");
             writer.newLine();
-            writer.write("Size: " + sandwich.getSize());
+            for (int i = 0; i < sandwich.size(); i++){
+                writer.write("Size: " + sandwich.get(i).getSize() + " inches");
+                writer.newLine();
+                writer.write("Bread: " + sandwich.get(i).getBread());
+                writer.newLine();
+                writer.write("Toasted: " + sandwich.get(i).isToasted());
+                writer.newLine();
+                writer.write("Regular Toppings: " + sandwich.get(i).getToppings());
+                writer.newLine();
+                writer.write("Meat: " + sandwich.get(i).getMeat());
+                writer.newLine();
+                writer.write("Cheese: " + sandwich.get(i).getCheese());
+                writer.newLine();
+                writer.write("Extra Meat: " + sandwich.get(i).isExtraMeat());
+                writer.newLine();
+                writer.write("Extra Cheese: " + sandwich.get(i).isExtraCheese());
+                writer.newLine();
+                writer.write("Sauces: " + sandwich.get(i).getSauces());
+                writer.newLine();
+            }
+            /*writer.write("Size: " +  sandwich.getSize());
             writer.newLine();
             writer.write("Bread: " + sandwich.getBread());
             writer.newLine();
@@ -35,7 +55,7 @@ public class FileManager {
             writer.write("Extra Cheese: " + sandwich.isExtraCheese());
             writer.newLine();
             writer.write("Sauces: " + sandwich.getSauces());
-            writer.newLine();
+            writer.newLine();*/
             writer.write("Total Price: $" + price);
             writer.newLine();
             // added the barrier to the recipt
