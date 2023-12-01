@@ -20,7 +20,7 @@ public class FileManager {
 
         // Generate a unique receipt file name based on current date and time
         LocalDateTime dateTime = LocalDateTime.now();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HH_mm_ss"); // Use underscores instead of colons
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyy-MM-dd-HH_mm_ss"); // Use underscores instead of colons
         String formattedDateTime = dateTime.format(dateTimeFormatter);
         String receiptFileName = RECEIPT_DIRECTORY + File.separator + "receipt_" + formattedDateTime + RECEIPT_FILE_EXTENSION;
 
