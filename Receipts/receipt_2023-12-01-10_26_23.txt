@@ -1,0 +1,28 @@
+Date and Time: 2023-12-01-10_26_23
+Order Details:
+Size: 12 inches
+Bread: White
+Toasted: true
+Regular Toppings: [lettuce]
+Meat: ham
+Cheese: american
+Extra Meat: true
+Extra Cheese: true
+Sauces: []
+Chip: salt chips
+Drink: size = L, 7up
+=======================================================
+Size: 12 inches
+Bread: White
+Toasted: true
+Regular Toppings: [lettuce]
+Meat: steak
+Cheese: provolone
+Extra Meat: true
+Extra Cheese: true
+Sauces: [mayonnaise]
+Chip: salt chips
+Drink: size = L, 7up
+=======================================================
+Total Price: $36.8
+=======================================================
