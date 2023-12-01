@@ -45,11 +45,7 @@ public class OrderScreen {
                     createSandwichOrder();
                     break;
                 case 2:
-                    List<String> previousOrders = FileManager.loadReceipt();
-                    for (String order : previousOrders) {
-                        System.out.println(order);
-                    }
-
+                    FileManager.loadReceipt();
                     // Prompt user to return to order screen or keep viewing
                     System.out.println("Do you want to go back to the order screen? (yes/no): ");
                     String goBackChoice = scanner.next().toLowerCase();
@@ -110,6 +106,21 @@ public class OrderScreen {
             sandwiches.add(sandwich);
 
             System.out.println();
+            // Ask if the user wants to add chips
+            System.out.println("Do you want to add chips to your order? (yes/no): ");
+            String addChipsChoice = scanner.next().toLowerCase();
+            if (addChipsChoice.equals("yes")) {
+                addChipsToOrder();
+            }
+
+            // Ask if the user wants to add drinks
+            System.out.println("Do you want to add drinks to your order? (yes/no): ");
+            String addDrinksChoice = scanner.next().toLowerCase();
+            if (addDrinksChoice.equals("yes")) {
+                addDrinksToOrder();
+            }
+
+            System.out.println();
             System.out.println("Do you want to order another sandwich? (yes/no): ");
             String orderAnotherChoice = scanner.next().toLowerCase();
 
@@ -119,26 +130,7 @@ public class OrderScreen {
             }
         }
 
-
-        System.out.println();
-        // Ask if the user wants to add chips
-        System.out.println("Do you want to add chips to your order? (yes/no): ");
-        String addChipsChoice = scanner.next().toLowerCase();
-        if (addChipsChoice.equals("yes")) {
-            addChipsToOrder();
-            // Update the total price after adding chips
-//            totalPrice += Chip.getPrice();
-        }
-
-        // Ask if the user wants to add drinks
-        System.out.println("Do you want to add drinks to your order? (yes/no): ");
-        String addDrinksChoice = scanner.next().toLowerCase();
-        if (addDrinksChoice.equals("yes")) {
-            addDrinksToOrder();
-            // Update the total price after adding drinks
-//            totalPrice += Drink.getPrice();
-        }
-
+        // Print out the order details
         for (int i = 0; i < sandwiches.size(); i++){
             System.out.println("Order Details:");
             System.out.println("Size: " + sandwiches.get(i).getSize() + " inches");
@@ -151,8 +143,6 @@ public class OrderScreen {
             System.out.println("Extra Cheese: " + sandwiches.get(i).isExtraCheese());
             System.out.println("Sauces: " + sandwiches.get(i).getSauces());
         }
-        // Print out the order details
-
 
         // Print the selected chips and drinks
         printSelectedChips();

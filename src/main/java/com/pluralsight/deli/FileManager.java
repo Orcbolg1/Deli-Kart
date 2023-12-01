@@ -8,81 +8,93 @@ import java.util.List;
 
 
 public class FileManager {
-    public static void writeOrderToReceipt(List<Sandwich> sandwich, Chip chip, Drink drink, double price) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("receipt.txt", true))) {
-            LocalDateTime dateTime = LocalDateTime.now();
-            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HH:mm:ss");
-            String formattedDateTime = dateTime.format(dateTimeFormatter);
+    private static final String RECEIPT_DIRECTORY = "Receipts";  // Update directory name
+    private static final String RECEIPT_FILE_EXTENSION = ".txt";
 
-            String boughtChip = null;
-            if (chip == null){
-                boughtChip = "none";
-            } else {
-                boughtChip = chip.toString();
-            }
+    public static void writeOrderToReceipt(List<Sandwich> sandwiches, Chip chip, Drink drink, double price) {
+        // Create the receipt directory if it doesn't exist
+        File directory = new File(RECEIPT_DIRECTORY);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
 
-            String boughtDrink = null;
-            if (drink == null){
-                boughtDrink = "none";
-            } else{
-                boughtDrink = drink.toString();
-            }
+        // Generate a unique receipt file name based on current date and time
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HH_mm_ss"); // Use underscores instead of colons
+        String formattedDateTime = dateTime.format(dateTimeFormatter);
+        String receiptFileName = RECEIPT_DIRECTORY + File.separator + "receipt_" + formattedDateTime + RECEIPT_FILE_EXTENSION;
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(receiptFileName))) {
+            // Write order details to the receipt file
             writer.write("Date and Time: " + formattedDateTime);
             writer.newLine();
             writer.write("Order Details:");
             writer.newLine();
-            for (int i = 0; i < sandwich.size(); i++) {
-                writer.write("Size: " + sandwich.get(i).getSize() + " inches");
+
+            for (int i = 0; i < sandwiches.size(); i++) {
+                writer.write("Size: " + sandwiches.get(i).getSize() + " inches");
                 writer.newLine();
-                writer.write("Bread: " + sandwich.get(i).getBread());
+                writer.write("Bread: " + sandwiches.get(i).getBread());
                 writer.newLine();
-                writer.write("Toasted: " + sandwich.get(i).isToasted());
+                writer.write("Toasted: " + sandwiches.get(i).isToasted());
                 writer.newLine();
-                writer.write("Regular Toppings: " + sandwich.get(i).getToppings());
+                writer.write("Regular Toppings: " + sandwiches.get(i).getToppings());
                 writer.newLine();
-                writer.write("Meat: " + sandwich.get(i).getMeat());
+                writer.write("Meat: " + sandwiches.get(i).getMeat());
                 writer.newLine();
-                writer.write("Cheese: " + sandwich.get(i).getCheese());
+                writer.write("Cheese: " + sandwiches.get(i).getCheese());
                 writer.newLine();
-                writer.write("Extra Meat: " + sandwich.get(i).isExtraMeat());
+                writer.write("Extra Meat: " + sandwiches.get(i).isExtraMeat());
                 writer.newLine();
-                writer.write("Extra Cheese: " + sandwich.get(i).isExtraCheese());
+                writer.write("Extra Cheese: " + sandwiches.get(i).isExtraCheese());
                 writer.newLine();
-                writer.write("Sauces: " + sandwich.get(i).getSauces());
+                writer.write("Sauces: " + sandwiches.get(i).getSauces());
+                writer.newLine();
+                writer.write("Chip: " + (chip == null ? "none" : chip.toString()));
+                writer.newLine();
+                writer.write("Drink: " + (drink == null ? "none" : drink.toString()));
+                writer.newLine();
+                writer.write("=======================================================");
                 writer.newLine();
             }
-            writer.write("Chip: " + boughtChip);
-            writer.newLine();
-            writer.write("Drink: " + boughtDrink);
-            writer.newLine();
+
             writer.write("Total Price: $" + price);
             writer.newLine();
-            // added the barrier to the recipt
             writer.write("=======================================================");
             writer.newLine();
-
             System.out.println("Thank You Come Again!");
-
-
-            writer.write(OrderScreen.barrier('='));
-
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    public static List<String> loadReceipt() {
-        List<String> previousOrders = new ArrayList<>();
+    public static void loadReceipt() {
+        File directory = new File(RECEIPT_DIRECTORY);
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("receipt.txt"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                previousOrders.add(line);
+        if (directory.exists() && directory.isDirectory()) {
+            File[] receiptFiles = directory.listFiles((dir, name) -> name.endsWith(RECEIPT_FILE_EXTENSION));
+
+            if (receiptFiles != null && receiptFiles.length > 0) {
+                System.out.println("List of Receipts:");
+                for (File file : receiptFiles) {
+                    System.out.println("Receipt File: " + file.getName());
+                    System.out.println("Contents:");
+
+                    try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            System.out.println(line);
+                        }
+                        System.out.println("=======================================================");
+                    } catch (IOException e) {
+                        System.out.println("Error reading receipt file: " + e.getMessage());
+                    }
+                }
+            } else {
+                System.out.println("No receipt files found in the directory.");
             }
-        } catch (IOException e) {
-            System.out.println("Error loading receipts!: " + e.getMessage());
+        } else {
+            System.out.println("Receipt directory does not exist.");
         }
-
-        return previousOrders;
     }
 }
